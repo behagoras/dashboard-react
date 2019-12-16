@@ -6,12 +6,22 @@ import {
   Link,
 } from 'react-router-dom';
 
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import Dashboard from '../layouts/Dashboard';
+
+import light from '../themes/light';
+
+//Containers
 import HelloWorld from '../components/HelloWorld';
+import Properties from '../containers/Properties';
 
 const GlobalStyle = createGlobalStyle`
-  body {
+  body, a {
+    margin:0;
+    padding:0;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+  }
+  *{
     margin:0;
     padding:0;
   }
@@ -27,7 +37,6 @@ const App = () => {
               <Link to="/">Hello World</Link>
             </li>
             <li>
-              <GlobalStyle />
               <Link to="/dashboard">Dashboard</Link>
             </li>
             <li>
@@ -38,18 +47,21 @@ const App = () => {
 
         {/* Switch for every page with layout dashboard */}
 
-        <Switch>
-          <Route path="/dashboard" exact>
-            <Dashboard>
-              <HelloWorld />
-            </Dashboard>
-          </Route>
-          <Route path="/" exact component={HelloWorld} />
-        </Switch>
-        <Switch>
-          <Route path="/2" exact component={HelloWorld} />
-          <Route path="/3" exact component={HelloWorld} />
-        </Switch>
+        <ThemeProvider theme={light}>
+          <Switch>
+            <Route path="/dashboard" exact>
+              <GlobalStyle />
+              <Dashboard>
+                <Properties />
+              </Dashboard>
+            </Route>
+            <Route path="/" exact component={HelloWorld} />
+          </Switch>
+          <Switch>
+            <Route path="/2" exact component={HelloWorld} />
+            <Route path="/3" exact component={HelloWorld} />
+          </Switch>
+        </ThemeProvider>
       </div>
     </Router>
   );
