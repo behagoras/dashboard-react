@@ -11,6 +11,11 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
   },
+  devServer: {
+    historyApiFallback: true,
+    contentBase: './',
+    hot: true,
+  },
   module: {
     rules: [
       {
@@ -35,7 +40,7 @@ module.exports = {
             loader: MiniCssExtractPlugin.loader,
           },
           'css-loader',
-          'sass-loader',
+        //   'sass-loader', // not using sass, using styled components
         ],
       },
     ],
