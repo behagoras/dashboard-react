@@ -8,7 +8,7 @@ import Main from '../components/Dashboard/Main';
 
 const Container = styled.div`
   background: lightseagreen;
-  display: grid;
+  /* display: grid; */
   grid-template-columns:1fr;
   padding:1em;
   margin:0;

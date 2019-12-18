@@ -9,7 +9,7 @@ const infoColor = '';
 const dangerColor = '';
 const warningColor = '';
 const roseColor = '';
-const unit = 10;
+const unit = 8;
 const fontFamily = '"San Francisco", Roboto, "Segoe UI" , Helvetica, Arial, sans-serif';
 const iconSize = {
   minSize: '16px',
@@ -18,10 +18,13 @@ const iconSize = {
 
 const light = {
   colors: {
+    text: brandColor.darker,
+    textDisabled: brandColor.light,
     primary: {
       ...brandColor,
       background: brandColor.base,
       color: brandColor.green,
+      text: brandColor.darker,
     },
     info: {
       color: infoColor,
