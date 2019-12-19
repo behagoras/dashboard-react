@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { CardTitle } from '../Material/Card';
+import { CardTitle } from '../Utils/Card';
 
 const PriceWrapper = styled.div`
     font-size:${(props) => props.theme.fontSize};

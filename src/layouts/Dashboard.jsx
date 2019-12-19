@@ -7,7 +7,6 @@ import Sidebar from '../components/Dashboard/Sidebar';
 import Main from '../components/Dashboard/Main';
 
 const Container = styled.div`
-  background: lightseagreen;
   /* display: grid; */
   grid-template-columns:1fr;
   padding:1em;
@@ -18,6 +17,7 @@ const Container = styled.div`
   /* font-size: 40px; */
   font-family: Helvetica, Arial, sans-serif;
   text-align:center;
+  background:#eee;
 `;
 
 const Dashboard = (props) => {

@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import Card, {
   CardBody,
   CardHeader,
   CardTitle,
   CardDescription,
   CardFooter,
-} from '../Material/Card';
+} from '../Utils/Card';
 
 import $bedrooms from '../../assets/img/bedrooms.svg';
 import $bathrooms from '../../assets/img/bathrooms.svg';
@@ -80,9 +81,9 @@ const PropertyItem = (props) => {
   const {
     bedrooms,
     bathrooms,
-    parkingLots,
+    // parkingLots,
     surface,
-    age,
+    // age,
   } = characteristics;
   return (
     <Card maxWidth="239px">
@@ -125,6 +126,15 @@ const PropertyItem = (props) => {
       </CardFooter>
     </Card>
   );
+};
+
+PropertyItem.propTypes = {
+  cover: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  price: PropTypes.object.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  characteristics: PropTypes.object.isRequired,
 };
 
 export default PropertyItem;

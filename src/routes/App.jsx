@@ -13,7 +13,8 @@ import light from '../themes/light';
 
 //Containers
 import HelloWorld from '../components/HelloWorld';
-import Properties from '../pages/Properties';
+import PropertiesFront from '../pages/Front/PropertiesFront';
+import PropertiesBack from '../pages/Dashboard/Properties/Properties';
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -41,36 +42,26 @@ const App = () => {
   return (
     <Router>
       <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Hello World</Link>
-            </li>
-            <li>
-              <Link to="/dashboard">Dashboard</Link>
-            </li>
-            <li>
-              <Link to="/2">2</Link>
-            </li>
-          </ul>
-        </nav>
 
         {/* Switch for every page with layout dashboard */}
 
         <ThemeProvider theme={light}>
-          <Switch>
-            <Route path="/dashboard" exact>
-              <GlobalStyle />
-              <Dashboard>
-                <Properties />
-              </Dashboard>
-            </Route>
-            <Route path="/" exact component={HelloWorld} />
-          </Switch>
-          <Switch>
-            <Route path="/2" exact component={HelloWorld} />
-            <Route path="/3" exact component={HelloWorld} />
-          </Switch>
+          <Dashboard>
+            <GlobalStyle />
+
+            <Switch>
+              <Route path="/properties" exact>
+                <PropertiesFront />
+              </Route>
+              <Route path="/properties-dashboard" exact>
+                <PropertiesBack />
+              </Route>
+              <Route path="/" exact component={HelloWorld} />
+              <Route path="/2" exact component={HelloWorld} />
+              <Route path="/3" exact component={HelloWorld} />
+            </Switch>
+          </Dashboard>
+
         </ThemeProvider>
       </div>
     </Router>
