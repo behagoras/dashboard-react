@@ -7,37 +7,23 @@ import TableFooter from './TableFooter';
 import TableRow from './TableRow';
 
 const CustomTable = (props) => {
-
-  const propertiesToArray = (properties) => {
-    const propertyArray = [];
-    properties.map((propertyObj) => {
-      const property = [
-        <img alt={propertyObj.seoTitle} src={propertyObj.promoteImage} />,
-        <p>{ReactHtmlParser(propertyObj.seoTitle)}</p>,
-        <p>{ReactHtmlParser(propertyObj.searchDescription)}</p>,
-        <p>{ReactHtmlParser(propertyObj.price)}</p>,
-      ];
-      propertyArray.push(property);
-    });
-    return propertyArray;
-  };
-
   const {
     tableHeaderColor,
     tableHead,
     tableData,
   } = props;
-  const data = [];
-
-  tableData.map((element, index) => {
+  const TableRowData = [];
+  tableData.map((element) => {
+    console.log('element', element);
     const myElement = [
-      <img alt={element.seoTitle} href={element.promoteImage} />,
+      <img alt={element.seoTitle} src={element.promoteImage} />,
       <p>{ReactHtmlParser(element.seoTitle)}</p>,
       <p>{ReactHtmlParser(element.searchDescription)}</p>,
-      <p>{ReactHtmlParser(element.price)}</p>,
+      <p>{ReactHtmlParser(`\$ ${element.prices.formattedAmount} `)}</p>,
     ];
-    data.push(myElement);
+    TableRowData.push(myElement);
   });
+
   console.log('CustomTables');
   return (
     <Table>
@@ -48,7 +34,9 @@ const CustomTable = (props) => {
       </TableHeader>
       <TableBody>
         {
-          <TableRow data={data} />
+          TableRowData.map((data) => {
+            return <TableRow data={data} />;
+          })
         }
       </TableBody>
       <TableFooter>
