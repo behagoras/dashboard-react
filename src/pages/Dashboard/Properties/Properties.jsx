@@ -1,36 +1,30 @@
 import React from 'react';
+import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 import Card, { CardHeader, CardBody, CardFooter } from '../../../components/Utils/Card';
 import CustomTable from '../../../components/Utils/Table/CustomTable';
-import propertiesMock from '../../../mock/property.json';
+import propertiesMock from '../../../mock/properties3.json';
+// import longJsonMock from '../../../mock/property.json';
+// import shortApiParser from '../../../mock/shortApiParser';
 
-// console.log(propertiesMock[0]);
+// import longJsonMock from '../../../mock/properties-2';
+// console.log('longJsonMock', shortApiParser(longJsonMock));
+// const propertiesMock2 = shortApiParser(longJsonMock);
+// console.log(JSON.stringify(propertiesMock2));
 
 const Properties = () => {
-
   const propertiesToArray = (properties) => {
     const propertyArray = [];
     properties.map((propertyObj) => {
       const property = [
         <img alt={propertyObj.seoTitle} src={propertyObj.promoteImage} />,
-        <p>{propertyObj.seoTitle}</p>,
-        <p>{propertyObj.searchDescription}</p>,
-        <p>{propertyObj.price}</p>,
+        <p>{ReactHtmlParser(propertyObj.seoTitle)}</p>,
+        <p>{ReactHtmlParser(propertyObj.searchDescription)}</p>,
+        <p>{ReactHtmlParser(propertyObj.price)}</p>,
       ];
       propertyArray.push(property);
     });
     return propertyArray;
   };
-
-  console.log(propertiesMock[0]);
-
-  const tableData = [
-    ['Dakota Rice', 'Niger', 'Oud-Turnhout', '$36,738'],
-    ['Minerva Hooper', 'Curaçao', 'Sinaai-Waas', '$23,789'],
-    ['Sage Rodriguez', 'Netherlands', 'Baileux', '$56,142'],
-    ['Philip Chaney', 'Korea, South', 'Overland Park', '$38,735'],
-    ['Doris Greene', 'Malawi', 'Feldkirchen in Kärnten', '$63,542'],
-    ['Mason Porter', 'Chile', 'Gloucester', '$78,615'],
-  ];
   return (
     <Card>
       <CardHeader />
