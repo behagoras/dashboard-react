@@ -5,26 +5,17 @@ import ReactHtmlParser from 'react-html-parser';
 const { Row: RowTabler } = TableTablerReact;
 const { Col: ColTabler } = TableTablerReact;
 
-const TableRow = (props) => {
-  const { data } = props;
+const TableRow = ({ data }) => {
+  // console.log('data', data);
+  // console.log('typeof(data)', Array.isArray(data));
   return (
     <>
       <RowTabler>
         {
+
           data.map(
             (property) => {
               console.log('property', property);
-
-              // console.log(
-              //   'ReactHtmlParser',
-              //   ReactHtmlParser(`<div>${property}</div>`, { decodeEntities: true })[0],
-              // );
-              console.log('property.type', property.type);
-
-              const parser = ReactHtmlParser(`<div>${property}</div>`);
-              parser.map((element) => {
-                console.log('element', element);
-              });
               return (
                 <ColTabler>
                   {

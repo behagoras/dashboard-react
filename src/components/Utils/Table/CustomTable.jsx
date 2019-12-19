@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactHtmlParser from 'react-html-parser';
 import Table from './Table';
 import TableHeader from './TableHeader';
 import TableBody from './TableBody';
@@ -6,11 +7,38 @@ import TableFooter from './TableFooter';
 import TableRow from './TableRow';
 
 const CustomTable = (props) => {
+
+  const propertiesToArray = (properties) => {
+    const propertyArray = [];
+    properties.map((propertyObj) => {
+      const property = [
+        <img alt={propertyObj.seoTitle} src={propertyObj.promoteImage} />,
+        <p>{ReactHtmlParser(propertyObj.seoTitle)}</p>,
+        <p>{ReactHtmlParser(propertyObj.searchDescription)}</p>,
+        <p>{ReactHtmlParser(propertyObj.price)}</p>,
+      ];
+      propertyArray.push(property);
+    });
+    return propertyArray;
+  };
+
   const {
     tableHeaderColor,
     tableHead,
     tableData,
   } = props;
+  const data = [];
+
+  tableData.map((element, index) => {
+    const myElement = [
+      <img alt={element.seoTitle} href={element.promoteImage} />,
+      <p>{ReactHtmlParser(element.seoTitle)}</p>,
+      <p>{ReactHtmlParser(element.searchDescription)}</p>,
+      <p>{ReactHtmlParser(element.price)}</p>,
+    ];
+    data.push(myElement);
+  });
+  console.log('CustomTables');
   return (
     <Table>
       <TableHeader
@@ -20,9 +48,7 @@ const CustomTable = (props) => {
       </TableHeader>
       <TableBody>
         {
-          tableData.map((data, index) => {
-            return (<TableRow data={data} />);
-          })
+          <TableRow data={data} />
         }
       </TableBody>
       <TableFooter>
@@ -33,16 +59,3 @@ const CustomTable = (props) => {
 };
 
 export default CustomTable;
-
-{ /* <CustomTable
-  tableHeaderColor="primary"
-  tableHead={['Name', 'Country', 'City', 'Salary']}
-  tableData={[
-    ['Dakota Rice', 'Niger', 'Oud-Turnhout', '$36,738'],
-    ['Minerva Hooper', 'Curaçao', 'Sinaai-Waas', '$23,789'],
-    ['Sage Rodriguez', 'Netherlands', 'Baileux', '$56,142'],
-    ['Philip Chaney', 'Korea, South', 'Overland Park', '$38,735'],
-    ['Doris Greene', 'Malawi', 'Feldkirchen in Kärnten', '$63,542'],
-    ['Mason Porter', 'Chile', 'Gloucester', '$78,615'],
-  ]}
-/> */ }

@@ -33,7 +33,7 @@ const Properties = () => {
           tableHeaderColor="primary"
           tableHead={['Image', 'Title', 'Description', 'Price']}
           // tableData={tableData}
-          tableData={propertiesToArray(propertiesMock)}
+          tableData={propertiesMock}
         />
       </CardBody>
       <CardFooter />
