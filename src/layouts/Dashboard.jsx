@@ -8,7 +8,7 @@ import Main from '../components/Dashboard/Main';
 
 const Container = styled.div`
   /* display: grid; */
-  grid-template-columns:1fr;
+  grid-template-columns:400px 1fr;
   padding:1em;
   margin:0;
   justify-content:space-around;  

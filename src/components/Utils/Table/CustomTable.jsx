@@ -39,9 +39,7 @@ const CustomTable = (props) => {
           })
         }
       </TableBody>
-      <TableFooter>
-        Footer
-      </TableFooter>
+      <TableFooter />
     </Table>
   );
 };

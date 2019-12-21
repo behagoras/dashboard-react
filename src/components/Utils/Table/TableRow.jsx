@@ -16,12 +16,13 @@ const Column = styled.td`
 `;
 
 const TableRow = ({ data }) => {
-  console.log('data', data[0]);
-  console.log('typeof(data)', Array.isArray(data));
+  // console.log('data', data);
+  // console.log('typeof(data)', Array.isArray(data));
   return (
     <>
       <RowTabler>
         {
+
           data.map(
             (property) => {
               console.log('property', property);
