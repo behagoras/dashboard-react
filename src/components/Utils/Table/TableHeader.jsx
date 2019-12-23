@@ -26,14 +26,16 @@ const TableHeader = (props) => {
   return (
     <TableHeaderWrapper>
       <tr>
+
         {
           data.map(
-            (element) => {
-              return <td>{element}</td>;
+            (element, index) => {
+              return <td key={index}>element</td>;
             },
           )
         }
       </tr>
+
     </TableHeaderWrapper>
   );
 };

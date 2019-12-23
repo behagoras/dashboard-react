@@ -16,23 +16,21 @@ const Column = styled.td`
 
 const TableRow = ({ data }) => {
   return (
-    <>
-      <Row>
-        {
-          data.map(
-            (property, index) => {
-              return (
-                <Column key={index}>
-                  {
-                    property
-                  }
-                </Column>
-              );
-            },
-          )
-        }
-      </Row>
-    </>
+    <Row key={data._id}>
+      {
+        data.data.map(
+          (property, index) => {
+            return (
+              <Column key={index}>
+                {
+                  property
+                }
+              </Column>
+            );
+          },
+        )
+      }
+    </Row>
   );
 };
 

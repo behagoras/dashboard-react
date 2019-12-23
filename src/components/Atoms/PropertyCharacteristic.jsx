@@ -23,7 +23,6 @@ const Characteristic = styled.div`
 
 const PropCharacteristic = (props) => {
   const { Icon, qty } = props;
-  console.log(<ReactSVG src={Icon} />);
   return (
     <Characteristic>
       <Icon />

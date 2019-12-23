@@ -2,11 +2,9 @@ import React from 'react';
 
 const Main = (props) => {
   return (
-    <>
-      <div>
-        {props.children}
-      </div>
-    </>
+    <div>
+      {props.children}
+    </div>
   );
 };
 

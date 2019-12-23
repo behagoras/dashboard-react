@@ -21,12 +21,10 @@ const App = () => {
             <GlobalStyle />
             <Switch>
               {
-                dashboardRoutes.map((route) => {
+                dashboardRoutes.map((route, index) => {
                   return (
-                    <Route path={route.layout + route.path} exact={route.exact}>
-                      <>
-                        <route.component />
-                      </>
+                    <Route path={route.layout + route.path} exact={route.exact} key={index}>
+                      <route.component />
                     </Route>
                   );
                 })

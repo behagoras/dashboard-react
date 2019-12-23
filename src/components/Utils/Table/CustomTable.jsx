@@ -13,13 +13,15 @@ const CustomTable = (props) => {
   } = props;
   const TableRowData = [];
   tableData.map((element) => {
-    // console.log('element', element);
-    const myElement = [
-      <img alt={element.seoTitle} src={element.promoteImage} />,
-      <p>{ReactHtmlParser(element.seoTitle)}</p>,
-      <p>{ReactHtmlParser(element.searchDescription)}</p>,
-      <p>{ReactHtmlParser(`\$ ${element.prices.formattedAmount} `)}</p>,
-    ];
+    const myElement = {
+      data: [
+        <img alt={element.seoTitle} src={element.promoteImage} />,
+        <p>{ReactHtmlParser(element.seoTitle)}</p>,
+        <p>{ReactHtmlParser(element.searchDescription)}</p>,
+        <p>{ReactHtmlParser(`$ ${element.prices.formattedAmount} `)}</p>,
+      ],
+      _id: element._id,
+    };
     TableRowData.push(myElement);
   });
 
@@ -32,8 +34,8 @@ const CustomTable = (props) => {
       </TableHeader>
       <TableBody>
         {
-          TableRowData.map((data) => {
-            return <TableRow data={data} />;
+          TableRowData.map((rowData, index) => {
+            return <TableRow key={index} data={rowData} />;
           })
         }
       </TableBody>
