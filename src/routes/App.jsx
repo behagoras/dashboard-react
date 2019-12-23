@@ -14,7 +14,8 @@ import light from '../themes/light';
 //Containers
 import HelloWorld from '../components/HelloWorld';
 import PropertiesFront from '../pages/Front/PropertiesFront';
-import PropertiesBack from '../pages/Dashboard/Properties/Properties';
+import PropertiesBack from '../pages/Dashboard/Properties';
+import PropertiesTabler from '../pages/Dashboard/PropertiesTabler';
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -55,6 +56,9 @@ const App = () => {
               </Route>
               <Route path="/properties-dashboard" exact>
                 <PropertiesBack />
+              </Route>
+              <Route path="/properties-tabler" exact>
+                <PropertiesTabler />
               </Route>
               <Route path="/" exact component={HelloWorld} />
               <Route path="/2" exact component={HelloWorld} />

@@ -1,7 +1,7 @@
 import React from 'react';
-import Card, { CardHeader, CardBody, CardFooter } from '../../../components/Utils/Card';
-import CustomTable from '../../../components/Utils/Table/CustomTable';
-import propertiesMock from '../../../mock/properties3.json';
+import Card, { CardHeader, CardBody, CardFooter } from '../../components/Utils/Card';
+import CustomTable from '../../components/Utils/Table/CustomTable';
+import propertiesMock from '../../mock/properties3.json';
 // import longJsonMock from '../../../mock/property.json';
 // import shortApiParser from '../../../mock/shortApiParser';
 
