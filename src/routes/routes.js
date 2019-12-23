@@ -2,6 +2,7 @@
 import HelloWorld from '../components/HelloWorld';
 import PropertiesFront from '../pages/Front/PropertiesFront';
 import PropertiesBack from '../pages/Dashboard/Properties';
+import PropertiesBig from '../pages/Dashboard/PropertiesBig';
 
 const dashboardRoutes = [
   {
@@ -12,6 +13,7 @@ const dashboardRoutes = [
     component: PropertiesFront,
     layout: '/front',
     exact: false,
+    menu: true,
   },
   {
     path: '/properties',
@@ -21,7 +23,17 @@ const dashboardRoutes = [
     component: PropertiesBack,
     layout: '/admin',
     exact: false,
-
+    menu: true,
+  },
+  {
+    path: '/properties-big',
+    name: 'Properties Big',
+    rtlName: 'Properties Big',
+    // icon: 'content_paste',
+    component: PropertiesBig,
+    layout: '/admin',
+    exact: false,
+    menu: true,
   },
   {
     path: '/',
@@ -31,6 +43,7 @@ const dashboardRoutes = [
     component: HelloWorld,
     layout: '/admin',
     exact: false,
+    menu: true,
   },
 ];
 
