@@ -1,9 +1,9 @@
 import React from 'react';
 
-const TableFooter = (props) => {
+const TableFooter = ({ children }) => {
   return (
     <>
-      {props.children}
+      {children}
     </>
   );
 };

@@ -67,15 +67,14 @@ const Characteristics = styled.div`
     padding:0 30px;
 `;
 
-const PropertyItem = (props) => {
-  const {
-    cover,
-    type,
-    price,
-    title,
-    description,
-    characteristics,
-  } = props;
+const PropertyItem = ({
+  cover,
+  type,
+  price,
+  title,
+  description,
+  characteristics,
+}) => {
   const {
     bedrooms,
     bathrooms,

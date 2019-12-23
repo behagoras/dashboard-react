@@ -10,10 +10,10 @@ const PropertyListWrapper = styled.div`
 
 `;
 
-const PropertyList = (props) => {
+const PropertyList = ({ children }) => {
   return (
     <PropertyListWrapper>
-      {props.children}
+      {children}
     </PropertyListWrapper>
   );
 };

@@ -12,11 +12,10 @@ const CardWrapper = styled.div`
     margin-top:30px;
 `;
 
-const Card = (props) => {
-  const { maxWidth } = props;
+const Card = ({ maxWidth, children }) => {
   return (
     <CardWrapper maxWidth={maxWidth}>
-      {props.children}
+      {children}
     </CardWrapper>
   );
 };

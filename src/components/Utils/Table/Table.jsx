@@ -21,10 +21,10 @@ const TableWrapper = styled.table`
   }
 `;
 
-const Table = (props) => {
+const Table = ({ children }) => {
   return (
     <TableWrapper>
-      {props.children}
+      {children}
     </TableWrapper>
   );
 };

@@ -3,10 +3,10 @@ import styled from 'styled-components';
 
 const ColumnWrapper = styled.td``;
 
-const Column = (props) => {
+const Column = ({ children }) => {
   return (
     <ColumnWrapper>
-      {props.children}
+      {children}
     </ColumnWrapper>
   );
 };

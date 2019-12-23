@@ -7,7 +7,7 @@ const PriceWrapper = styled.div`
     text-align:left;
 `;
 
-const Price = (props) => {
+const Price = ({ price }) => {
   const formatPrice = (val, fixedDecimals, currencyCode) => {
     const absVal = Math.abs(val);
     const parts = absVal.toString().split('.');
@@ -20,7 +20,6 @@ const Price = (props) => {
     return `${val < 0 ? '-' : ''}$${res}${` ${currencyCode}` || ''}`;
   };
 
-  const { price } = props;
   const [value, coin] = price;
   return (
     <PriceWrapper>

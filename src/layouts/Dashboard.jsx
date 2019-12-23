@@ -18,14 +18,14 @@ const Container = styled.div`
   background:#eee;
 `;
 
-const Dashboard = (props) => {
+const Dashboard = ({ children }) => {
   return (
     <Container>
       <Header />
       <Sidebar />
       <p>Using Dashboard Template</p>
       <Main>
-        {props.children}
+        {children}
       </Main>
       <Footer />
     </Container>

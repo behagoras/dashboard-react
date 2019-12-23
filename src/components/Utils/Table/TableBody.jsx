@@ -3,10 +3,10 @@ import styled from 'styled-components';
 
 const TBody = styled.tbody``;
 
-const TableBody = (props) => {
+const TableBody = ({ children }) => {
   return (
     <TBody>
-      {props.children}
+      {children}
     </TBody>
   );
 };

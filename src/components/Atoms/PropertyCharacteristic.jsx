@@ -21,8 +21,7 @@ const Characteristic = styled.div`
     }
 `;
 
-const PropCharacteristic = (props) => {
-  const { Icon, qty } = props;
+const PropCharacteristic = ({ Icon, qty }) => {
   return (
     <Characteristic>
       <Icon />

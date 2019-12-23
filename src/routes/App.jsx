@@ -10,7 +10,7 @@ import Dashboard from '../layouts/Dashboard';
 import light from '../themes/light';
 import dashboardRoutes from './routes';
 
-import GlobalStyle from '../assets/styles/GlobalStyles';
+import GlobalStyle from '../styles/GlobalStyles';
 
 const App = () => {
   return (

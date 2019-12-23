@@ -5,10 +5,10 @@ const CardHeaderWrapper = styled.div`
   overflow:hidden;
 `;
 
-const CardHeader = (props) => {
+const CardHeader = ({ children }) => {
   return (
     <CardHeaderWrapper>
-      {props.children}
+      {children}
     </CardHeaderWrapper>
   );
 };

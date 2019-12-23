@@ -21,12 +21,10 @@ const TableHeaderWrapper = styled.thead`
   border-radius: 3px;
 `;
 
-const TableHeader = (props) => {
-  const { data } = props;
+const TableHeader = ({ data }) => {
   return (
     <TableHeaderWrapper>
       <tr>
-
         {
           data.map(
             (element, index) => {
@@ -35,7 +33,6 @@ const TableHeader = (props) => {
           )
         }
       </tr>
-
     </TableHeaderWrapper>
   );
 };

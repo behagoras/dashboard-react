@@ -6,11 +6,8 @@ import TableBody from './TableBody';
 import TableFooter from './TableFooter';
 import TableRow from './TableRow';
 
-const CustomTable = (props) => {
-  const {
-    tableHead,
-    tableData,
-  } = props;
+const CustomTable = ({ tableHead, tableData }) => {
+
   const TableRowData = [];
   tableData.map((element) => {
     const myElement = {

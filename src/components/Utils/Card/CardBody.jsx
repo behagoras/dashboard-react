@@ -5,10 +5,10 @@ const CardBodyWrapper = styled.div`
     padding: 8px 18px;
 `;
 
-const CardBody = (props) => {
+const CardBody = ({ children }) => {
   return (
     <CardBodyWrapper>
-      {props.children}
+      {children}
     </CardBodyWrapper>
   );
 };
