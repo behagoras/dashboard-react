@@ -1,14 +1,14 @@
 import React from 'react';
-import { Table as TableTableReact } from 'tabler-react';
+import styled from 'styled-components';
 
-const { Body } = TableTableReact;
+const TBody = styled.tbody``;
 
 const TableBody = (props) => {
   return (
-    <>
+    <TBody>
       {props.children}
-    </>
+    </TBody>
   );
 };
 
-export default Body;
+export default TBody;

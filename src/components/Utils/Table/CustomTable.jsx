@@ -8,13 +8,12 @@ import TableRow from './TableRow';
 
 const CustomTable = (props) => {
   const {
-    tableHeaderColor,
     tableHead,
     tableData,
   } = props;
   const TableRowData = [];
   tableData.map((element) => {
-    console.log('element', element);
+    // console.log('element', element);
     const myElement = [
       <img alt={element.seoTitle} src={element.promoteImage} />,
       <p>{ReactHtmlParser(element.seoTitle)}</p>,
@@ -24,7 +23,6 @@ const CustomTable = (props) => {
     TableRowData.push(myElement);
   });
 
-  console.log('CustomTables');
   return (
     <Table>
       <TableHeader

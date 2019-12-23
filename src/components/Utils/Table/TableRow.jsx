@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Table as TableTablerReact } from 'tabler-react';
 
-const { Row: RowTabler } = TableTablerReact;
-// conCst { Col: ColTabler } = TableTablerReact;
+const Row = styled.tr`
+`;
 const Column = styled.td`
   max-width:40vw;
   & p {
@@ -16,18 +15,14 @@ const Column = styled.td`
 `;
 
 const TableRow = ({ data }) => {
-  // console.log('data', data);
-  // console.log('typeof(data)', Array.isArray(data));
   return (
     <>
-      <RowTabler>
+      <Row>
         {
-
           data.map(
-            (property) => {
-              console.log('property', property);
+            (property, index) => {
               return (
-                <Column>
+                <Column key={index}>
                   {
                     property
                   }
@@ -36,7 +31,7 @@ const TableRow = ({ data }) => {
             },
           )
         }
-      </RowTabler>
+      </Row>
     </>
   );
 };

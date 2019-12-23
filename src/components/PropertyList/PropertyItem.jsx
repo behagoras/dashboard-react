@@ -25,8 +25,6 @@ const PropertyItemWrapper = styled.div`
     overflow:hidden;
 `;
 const PropertyCover = styled.img`
-    /* font-family: "CircularStd-Book", Helvetica, Arial, sans-serif; */
-    /* font-size: 16px; */
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     border-radius:10px 10px 0 0;
@@ -81,9 +79,7 @@ const PropertyItem = (props) => {
   const {
     bedrooms,
     bathrooms,
-    // parkingLots,
     surface,
-    // age,
   } = characteristics;
   return (
     <Card maxWidth="239px">

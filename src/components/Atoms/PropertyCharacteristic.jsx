@@ -26,9 +26,7 @@ const PropCharacteristic = (props) => {
   console.log(<ReactSVG src={Icon} />);
   return (
     <Characteristic>
-      {/* <div style={{ width: '15px', height: '15px' }}> */}
       <Icon />
-      {/* </div> */}
       <p>{qty}</p>
     </Characteristic>
   );

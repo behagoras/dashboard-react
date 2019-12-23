@@ -1,17 +1,6 @@
 import React from 'react';
-// import styled from 'styled-components';
-
-// import Table,
-// {
-//   Row,
-//   Column,
-// } from '../../components/Table';
-// import Card from '../../components/Material/Card';
 
 import PropertyList, { Item } from '../../../components/PropertyList';
-
-// const Badge = styled.div`
-// `;
 
 const Properties = () => {
   return (
