@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const TableWrapper = styled.table`
+  margin-top:-30px;
   width: 100%;
   max-width: 100%;
   margin-bottom: 1rem;
@@ -20,14 +21,10 @@ const TableWrapper = styled.table`
   }
 `;
 
-const TableBody = styled.tbody``;
-
 const Table = (props) => {
   return (
     <TableWrapper>
-
       {props.children}
-
     </TableWrapper>
   );
 };

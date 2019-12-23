@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
+  // Link,
 } from 'react-router-dom';
 
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
@@ -16,6 +16,8 @@ import HelloWorld from '../components/HelloWorld';
 import PropertiesFront from '../pages/Front/PropertiesFront';
 import PropertiesBack from '../pages/Dashboard/Properties';
 import PropertiesTabler from '../pages/Dashboard/PropertiesTabler';
+// import PropertiesMaterial from '../pages/Dashboard/PropertiesMaterial';
+import dashboardRoutes from './routes';
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -40,17 +42,18 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const App = () => {
+
+  // console.log('route1', `${dashboardRoutes[1].layout}${dashboardRoutes[1].path}`);
+
   return (
     <Router>
       <div>
-
         {/* Switch for every page with layout dashboard */}
 
         <ThemeProvider theme={light}>
           <Dashboard>
             <GlobalStyle />
-
-            <Switch>
+            {/* <Switch>
               <Route path="/properties" exact>
                 <PropertiesFront />
               </Route>
@@ -63,7 +66,24 @@ const App = () => {
               <Route path="/" exact component={HelloWorld} />
               <Route path="/2" exact component={HelloWorld} />
               <Route path="/3" exact component={HelloWorld} />
+            </Switch> */}
+
+            <Switch>
+              {
+                dashboardRoutes.map((route) => {
+                  const path = route.layout + route.path;
+                  console.log('path=', path);
+                  return (
+                    <Route path={route.layout + route.path} exact={route.exact}>
+                      <>
+                        <route.component />
+                      </>
+                    </Route>
+                  );
+                })
+              }
             </Switch>
+
           </Dashboard>
 
         </ThemeProvider>

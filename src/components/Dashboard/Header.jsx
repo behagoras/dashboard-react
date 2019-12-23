@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+import dashboardRoutes from '../../routes/routes';
+
 const HeaderContainer = styled.nav`
   display: grid;
   grid-template-columns: repeat(auto-fit, auto);
@@ -56,18 +58,16 @@ const Header = () => {
   return (
     <HeaderContainer>
       <HeaderList>
-        <li>
-          <Link to="/">Hello World</Link>
-        </li>
-        <li>
-          <Link to="/properties">Properties Front</Link>
-        </li>
-        <li>
-          <Link to="/properties-dashboard">Dashboard Properties</Link>
-        </li>
-        <li>
-          <Link to="/2">Dashboard Hello World</Link>
-        </li>
+        {
+          dashboardRoutes.map((route, index) => {
+            return (
+              <li key={index}>
+                <Link to={route.layout + route.path}>{route.name}</Link>
+              </li>
+            );
+          })
+        }
+
       </HeaderList>
     </HeaderContainer>
   );

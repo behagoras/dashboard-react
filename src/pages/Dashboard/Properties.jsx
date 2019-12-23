@@ -11,6 +11,7 @@ import propertiesMock from '../../mock/properties3.json';
 // console.log(JSON.stringify(propertiesMock2));
 
 const Properties = () => {
+  console.log('propertiesMock=', propertiesMock);
   return (
     <Card>
       <CardHeader />
@@ -18,7 +19,6 @@ const Properties = () => {
         <CustomTable
           tableHeaderColor="primary"
           tableHead={['Image', 'Title', 'Description', 'Price']}
-          // tableData={tableData}
           tableData={propertiesMock}
         />
       </CardBody>

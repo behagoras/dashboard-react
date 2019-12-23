@@ -18,6 +18,7 @@ import {
 const Properties = () => {
   return (
     <div>
+      hello
       <Page.Content title="Store Components">
         <Grid.Row>
           <Grid.Col lg={12}>
