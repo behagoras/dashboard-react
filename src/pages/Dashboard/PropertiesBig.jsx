@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 import Card from '../../components/Utils/Card';
 
+import getProperties from '../../data/getProperties';
+
 const Table = styled.table`
     margin-top: -30px;
     max-width: 100%;
@@ -32,6 +34,12 @@ const TableCell = styled.td`
 `;
 
 const Properties = () => {
+
+  getProperties().then((data) => {
+    console.log('data', data);
+
+  });
+
   return (
     <Card>
       <Table>

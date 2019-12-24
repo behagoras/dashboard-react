@@ -17,6 +17,7 @@ module.exports = {
     hot: true,
   },
   module: {
+
     rules: [
       {
         test: /\.(js|jsx)$/,
@@ -58,6 +59,9 @@ module.exports = {
         ],
       },
     ],
+  },
+  node: {
+    fs: 'empty',
   },
   plugins: [
     new HtmlWebpackPlugin({

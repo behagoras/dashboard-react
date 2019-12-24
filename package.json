@@ -26,6 +26,8 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.8.0",
+    "dotenv": "^8.2.0",
+    "fs": "0.0.1-security",
     "history": "^4.10.1",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
