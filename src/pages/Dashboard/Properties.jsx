@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Card, { CardHeader, CardBody, CardFooter } from '../../components/Utils/Card';
 import CustomTable from '../../components/Utils/Table/CustomTable';
-import propertiesMock from '../../mock/properties3.json';
+import propertiesMock from '../../mock/properties1.json';
+
+import getProperties from '../../data/getProperties';
 
 const Properties = () => {
-  console.log('propertiesMock=', propertiesMock);
+  const [properties, setProperties] = useState(propertiesMock);
+
+  async function fetchMyAPI() {
+    const data = await getProperties();
+    setProperties(data.data);
+  }
+
+  useEffect(() => {
+    fetchMyAPI();
+  }, []);
+
   return (
     <Card>
       <CardHeader />
@@ -12,7 +24,7 @@ const Properties = () => {
         <CustomTable
           tableHeaderColor="primary"
           tableHead={['Image', 'Title', 'Description', 'Price']}
-          tableData={propertiesMock}
+          tableData={properties}
         />
       </CardBody>
       <CardFooter />

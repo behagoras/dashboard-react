@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import Card from '../../components/Utils/Card';
+import propertiesMock from '../../mock/properties1.json';
 
 import getProperties from '../../data/getProperties';
 
@@ -24,7 +25,11 @@ const TableHead = styled.thead`
 `;
 
 const TableBody = styled.tbody``;
-const TableRow = styled.tr``;
+const TableRow = styled.tr`
+  & :hover{
+    background:lightcoral;
+  }
+`;
 const TableCell = styled.td`
     max-width: 40vw;
     padding: 0.75rem;
@@ -32,44 +37,76 @@ const TableCell = styled.td`
     border-top: 1px solid #dee2e6;
     padding-left: 1.5rem;
 `;
+const Image = styled.img`
+  max-width:100%;
+`;
+const DescriptionText = styled.p`
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-width: 60px;
+`;
 
 const Properties = () => {
+  const [properties, setProperties] = useState(propertiesMock);
 
+  async function fetchMyAPI() {
+    const data = await getProperties();
+    setProperties(data.data);
+  }
   getProperties().then((data) => {
     console.log('data', data);
-
   });
+
+  useEffect(() => {
+    fetchMyAPI();
+  }, []);
 
   return (
     <Card>
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell>Element</TableCell>
-            <TableCell>Element</TableCell>
-            <TableCell>Element</TableCell>
-            <TableCell>Element</TableCell>
+            <TableCell>Image</TableCell>
+            <TableCell>Title</TableCell>
+            <TableCell>Description</TableCell>
+            <TableCell>Price</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          <TableRow>
-            <TableCell>Element</TableCell>
-            <TableCell>Element</TableCell>
-            <TableCell>Element</TableCell>
-            <TableCell>Element</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Element</TableCell>
-            <TableCell>Element</TableCell>
-            <TableCell>Element</TableCell>
-            <TableCell>Element</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Element</TableCell>
-            <TableCell>Element</TableCell>
-            <TableCell>Element</TableCell>
-            <TableCell>Element</TableCell>
-          </TableRow>
+          {
+            properties.map((property, index) => {
+              console.log('property', (property));
+              const {
+                _id,
+                title,
+                img,
+                description,
+                prices,
+              } = property;
+              console.log(img.src);
+
+              return (
+                <TableRow key={_id}>
+                  <TableCell>
+                    <Image src={img.src} alt={title} />
+                  </TableCell>
+                  <TableCell>
+                    {title}
+                  </TableCell>
+                  <TableCell>
+                    <DescriptionText>
+                      {description}
+                    </DescriptionText>
+                  </TableCell>
+                  <TableCell>
+                    {`$${prices.formattedAmount} ${prices.currency}`}
+                  </TableCell>
+                </TableRow>
+              );
+            })
+          }
         </TableBody>
       </Table>
     </Card>
