@@ -1,10 +1,15 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const MainWrapper = styled.div`
+  grid-area: mn;
+`;
 
 const Main = ({ children }) => {
   return (
-    <div>
+    <MainWrapper>
       {children}
-    </div>
+    </MainWrapper>
   );
 };
 

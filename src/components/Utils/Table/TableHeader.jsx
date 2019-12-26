@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const TableHeaderWrapper = styled.thead`
-  font-family: Roboto,Helvetica,Arial,sans-serif;
+  font-family: var(--font-family);
   font-weight: bold;
   line-height: 1.5em;
   font-size: .875rem;

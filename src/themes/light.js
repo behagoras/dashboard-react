@@ -2,13 +2,10 @@ import colors from './colors';
 
 const brandColor = colors.blue;
 const successColor = colors.green;
-// const brandColor = '#0361e4';
 const whiteColor = colors.white;
-const infoColor = '';
-// const successColor = '';
-const dangerColor = '';
-const warningColor = '';
-const roseColor = '';
+const infoColor = colors.teal;
+const dangerColor = colors.red;
+const warningColor = colors.yellow;
 const unit = 8;
 const fontFamily = '"San Francisco", Roboto, "Segoe UI" , Helvetica, Arial, sans-serif';
 const iconSize = {
@@ -23,39 +20,45 @@ const light = {
     primary: {
       ...brandColor,
       background: brandColor.base,
+      gray: brandColor.text,
       color: brandColor.green,
       text: brandColor.darker,
     },
     info: {
-      color: infoColor,
-      background: infoColor,
-      text: whiteColor,
+      ...infoColor,
+      gray: infoColor.text,
+      color: infoColor.base,
+      background: infoColor.base,
     },
     success: {
       ...successColor,
+      gray: successColor.text,
       color: successColor.base,
       background: successColor.base,
     },
     danger: {
-      color: dangerColor,
-      background: dangerColor,
-      text: whiteColor,
+      ...dangerColor,
+      gray: dangerColor.text,
+      color: dangerColor.base,
+      background: dangerColor.base,
     },
     warning: {
-      color: warningColor,
-      background: warningColor,
-      text: whiteColor,
-    },
-    rose: {
-      color: roseColor,
-      background: roseColor,
-      text: whiteColor,
+      ...warningColor,
+      gray: warningColor.text,
+      color: warningColor.base,
+      background: warningColor.base,
     },
     background: {
       ...whiteColor,
       color: whiteColor.base,
       background: whiteColor.base,
     },
+    white: {
+      ...whiteColor,
+      color: whiteColor.base,
+      background: whiteColor.base,
+    },
+
   },
   spacing: {
     none: `${unit * 0}px`,
@@ -70,6 +73,8 @@ const light = {
   fontFamily,
   iconSize,
 };
+
+console.log('light', light);
 
 export default light;
 

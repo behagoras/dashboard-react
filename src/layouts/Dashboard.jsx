@@ -7,15 +7,22 @@ import Sidebar from '../components/Dashboard/Sidebar';
 import Main from '../components/Dashboard/Main';
 
 const Container = styled.div`
-  grid-template-columns:400px 1fr;
-  padding:1em;
-  margin:0;
-  justify-content:space-around;  
+  height:100%;
   min-height: 100vh;
   margin: 0 auto;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: var(--font-family);
   text-align:center;
   background:#eee;
+  display:grid;
+  justify-content:space-between;  
+  align-content:space-between;  
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: 100px 1fr 100px;
+  grid-auto-rows: minmax(100px, auto);
+  grid-template-areas: 
+    "sb sb hd hd hd hd hd hd hd"
+    "sb sb mn mn mn mn mn mn mn"
+    "sb  sb  ft  ft ft ft ft ft ft";
 `;
 
 const Dashboard = ({ children }) => {
@@ -23,8 +30,8 @@ const Dashboard = ({ children }) => {
     <Container>
       <Header />
       <Sidebar />
-      <p>Using Dashboard Template</p>
       <Main>
+        {/* <p>Using Dashboard Template</p> */}
         {children}
       </Main>
       <Footer />

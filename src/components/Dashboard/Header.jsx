@@ -5,10 +5,11 @@ import { Link } from 'react-router-dom';
 import dashboardRoutes from '../../routes/routes';
 
 const HeaderContainer = styled.nav`
+  grid-area: hd;
+  width:100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, auto);
   justify-items:center;
-
   padding: 0 ;
   background: #fff;
   border-bottom: 1px solid rgba(0, 40, 100, 0.12);
@@ -17,7 +18,6 @@ const HeaderContainer = styled.nav`
 
 const HeaderList = styled.ul`
   width:100%;
-  max-width:900px;
   margin:0 auto;
   color: #9aa0ac;
   display: flex;

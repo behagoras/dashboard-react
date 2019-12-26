@@ -1,7 +1,7 @@
 // core components/views for Admin layout
 import HelloWorld from '../components/HelloWorld';
 import PropertiesFront from '../pages/Front/PropertiesFront';
-import PropertiesBack from '../pages/Dashboard/Properties';
+// import PropertiesBack from '../pages/Dashboard/Properties';
 import PropertiesBig from '../pages/Dashboard/PropertiesBig';
 
 const dashboardRoutes = [
@@ -9,27 +9,27 @@ const dashboardRoutes = [
     path: '/properties',
     name: 'Properties Front',
     rtlName: 'Properties Front',
-    // icon: Person,
+    icon: 'fas fa-home',
     component: PropertiesFront,
     layout: '/front',
     exact: false,
     menu: true,
   },
-  {
-    path: '/properties',
-    name: 'Properties Back',
-    rtlName: 'Properties Back',
-    // icon: 'content_paste',
-    component: PropertiesBack,
-    layout: '/admin',
-    exact: false,
-    menu: true,
-  },
+  // {
+  //   path: '/properties',
+  //   name: 'Properties Back',
+  //   rtlName: 'Properties Back',
+  //   icon: 'fas fa-home',
+  //   component: PropertiesBack,
+  //   layout: '/admin',
+  //   exact: false,
+  //   menu: true,
+  // },
   {
     path: '/properties-big',
     name: 'Properties Big',
     rtlName: 'Properties Big',
-    // icon: 'content_paste',
+    icon: 'fas fa-home',
     component: PropertiesBig,
     layout: '/admin',
     exact: false,
@@ -39,7 +39,7 @@ const dashboardRoutes = [
     path: '/',
     name: 'Hello World',
     rtlName: 'Hello World',
-    // icon: Dashboard,
+    icon: 'fas fa-columns',
     component: HelloWorld,
     layout: '/admin',
     exact: false,
