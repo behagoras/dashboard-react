@@ -138,7 +138,7 @@ const Sidebar = () => {
             <img src="https://demos.creative-tim.com/now-ui-dashboard-react/static/media/logo-white.eec7c7f6.svg" alt="react logo" />
           </LogoImg>
         </LogoLink>
-        <LogoLink>
+        <LogoLink to="/">
           David
         </LogoLink>
       </LogoContainer>

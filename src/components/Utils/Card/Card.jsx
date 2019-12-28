@@ -2,22 +2,36 @@ import React from 'react';
 import styled from 'styled-components';
 
 const CardWrapper = styled.div`
-    -webkit-font-smoothing: antialiased;
-    background-color: ${(props) => props.theme.colors.background.base};
-    border-radius: 10px;
-    box-shadow: 0 6px 6px -1px rgba(10, 22, 70, 0.1);
-    max-width:${(props) => (props.maxWidth ? props.maxWidth : '100%')};
-    width:${(props) => (props.width ? props.width : '100%')};
-    display:grid;
-    margin-top:30px;
+  max-width:${(props) => (props.maxWidth ? props.maxWidth : '100%')};
+  width:calc(${(props) => (props.width ? props.width : '100%')} - 30px);
+  padding:0 15px;
+  padding-bottom:30px;
 `;
 
-const Card = ({ maxWidth, children }) => {
+const Card = styled.div`
+  background-color: var(--white-color);
+  padding:15px;
+  border-radius: 10px;
+  box-shadow: 0 6px 6px -1px rgba(10, 22, 70, 0.1);
+  width:calc(100% - 30px);
+`;
+
+const _Card = ({ maxWidth, children, className }) => {
+
+  console.log('className', className);
+  if (className) {
+    console.log('Has classname');
+  } else {
+    console.log('Doesn\'t has classname');
+  }
+  // console.log('2Class', classsName ? className : {});
   return (
-    <CardWrapper maxWidth={maxWidth}>
-      {children}
+    <CardWrapper maxWidth={maxWidth || '100%'}>
+      <Card className={className || ''}>
+        {children}
+      </Card>
     </CardWrapper>
   );
 };
 
-export default Card;
+export default _Card;

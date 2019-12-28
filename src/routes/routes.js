@@ -3,6 +3,7 @@ import HelloWorld from '../components/HelloWorld';
 import PropertiesFront from '../pages/Front/PropertiesFront';
 // import PropertiesBack from '../pages/Dashboard/Properties';
 import PropertiesBig from '../pages/Dashboard/PropertiesBig';
+import MyForm from '../pages/Dashboard/Form';
 
 const dashboardRoutes = [
   {
@@ -45,6 +46,7 @@ const dashboardRoutes = [
     exact: false,
     menu: true,
   },
+
 ];
 
 export default dashboardRoutes;

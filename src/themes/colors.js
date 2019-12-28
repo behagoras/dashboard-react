@@ -95,6 +95,7 @@ const colors = {
   'sky': {
     dark: 'rgb(196, 205, 213)',
     base: 'rgb(223, 227, 232)',
+    lero: 'rgb(224, 224, 224)',
     light: 'rgb(244, 246, 248)',
     lighter: 'rgb(249, 250, 251)',
   },
@@ -102,7 +103,7 @@ const colors = {
     base: 'rgb(0, 0, 0)',
   },
   'white': {
-    base: 'rgb(255, 255, 255)',
+    base: '#eee',
   },
 };
 

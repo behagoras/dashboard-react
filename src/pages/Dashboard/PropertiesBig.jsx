@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-
 import Card from '../../components/Utils/Card';
 import propertiesMock from '../../mock/properties1.json';
-
 import getProperties from '../../data/getProperties';
+import TitleBar from '../../components/Dashboard/TitleBar';
 
 const Table = styled.table`
-    margin-top: -30px;
     max-width: 100%;
     margin-bottom: 1rem;
     margin-left: 30px;
@@ -19,15 +17,15 @@ const TableHead = styled.thead`
     font-weight:bold;
     color: #FFF;
     position: relative;
-    background: linear-gradient(60deg,#ab47bc,#8e24aa);
-    box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(156,39,176,.4);
+    background: linear-gradient(60deg,var(--color-brand),var(--color-brand-contrast));
+    box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px var(--color-dark);
     border-radius: 3px;
 `;
 
 const TableBody = styled.tbody``;
 const TableRow = styled.tr`
   & :hover{
-    background:lightcoral;
+    background:var(--color-grey-light);
   }
 `;
 const TableCell = styled.td`
@@ -50,7 +48,6 @@ const DescriptionText = styled.p`
 
 const Properties = () => {
   const [properties, setProperties] = useState(propertiesMock);
-
   async function fetchMyAPI() {
     const data = await getProperties();
     setProperties(data.data);
@@ -64,52 +61,52 @@ const Properties = () => {
   }, []);
 
   return (
-    <Card>
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell>Image</TableCell>
-            <TableCell>Title</TableCell>
-            <TableCell>Description</TableCell>
-            <TableCell>Price</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {
-            properties.map((property, index) => {
-              console.log('property', (property));
-              const {
-                _id,
-                title,
-                img,
-                description,
-                prices,
-              } = property;
-              console.log(img.src);
-
-              return (
-                <TableRow key={_id}>
-                  <TableCell>
-                    <Image src={img.src} alt={title} />
-                  </TableCell>
-                  <TableCell>
-                    {title}
-                  </TableCell>
-                  <TableCell>
-                    <DescriptionText>
-                      {description}
-                    </DescriptionText>
-                  </TableCell>
-                  <TableCell>
-                    {`$${prices.formattedAmount} ${prices.currency}`}
-                  </TableCell>
-                </TableRow>
-              );
-            })
-          }
-        </TableBody>
-      </Table>
-    </Card>
+    <>
+      <TitleBar title="Properties" actions={[{ name: 'Add Property', icon: 'fas fa-plus-square', to: '/admin/form' }]} />
+      <Card>
+        <Table>
+          <TableHead>
+            <tr>
+              <TableCell>Image</TableCell>
+              <TableCell>Title</TableCell>
+              <TableCell>Description</TableCell>
+              <TableCell>Price</TableCell>
+            </tr>
+          </TableHead>
+          <TableBody>
+            {
+              properties.map((property) => {
+                const {
+                  _id,
+                  title,
+                  img,
+                  description,
+                  prices,
+                } = property;
+                return (
+                  <TableRow key={_id}>
+                    <TableCell>
+                      <Image src={img.src} alt={title} />
+                    </TableCell>
+                    <TableCell>
+                      {title}
+                    </TableCell>
+                    <TableCell>
+                      <DescriptionText>
+                        {description}
+                      </DescriptionText>
+                    </TableCell>
+                    <TableCell>
+                      {`$${prices.formattedAmount} ${prices.currency}`}
+                    </TableCell>
+                  </TableRow>
+                );
+              })
+            }
+          </TableBody>
+        </Table>
+      </Card>
+    </>
   );
 };
 

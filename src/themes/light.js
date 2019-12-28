@@ -2,10 +2,11 @@ import colors from './colors';
 
 const brandColor = colors.blue;
 const successColor = colors.green;
-const whiteColor = colors.white;
+const whiteColor = colors.sky;
 const infoColor = colors.teal;
 const dangerColor = colors.red;
 const warningColor = colors.yellow;
+const grayColor = colors.sky;
 const unit = 8;
 const fontFamily = '"San Francisco", Roboto, "Segoe UI" , Helvetica, Arial, sans-serif';
 const iconSize = {
@@ -55,8 +56,14 @@ const light = {
     },
     white: {
       ...whiteColor,
-      color: whiteColor.base,
-      background: whiteColor.base,
+      color: whiteColor.lighter,
+      background: whiteColor.lighter,
+      sky: whiteColor.base,
+    },
+    gray: {
+      ...grayColor,
+      color: grayColor.darker,
+      background: grayColor.lighter,
     },
 
   },

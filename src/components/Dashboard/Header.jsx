@@ -5,26 +5,28 @@ import { Link } from 'react-router-dom';
 import dashboardRoutes from '../../routes/routes';
 
 const HeaderContainer = styled.nav`
+  background:var(--brand-color-text);
   grid-area: hd;
   width:100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, auto);
   justify-items:center;
   padding: 0 ;
-  background: #fff;
   border-bottom: 1px solid rgba(0, 40, 100, 0.12);
-  margin: 0 auto;
+  margin:auto;
 `;
 
 const HeaderList = styled.ul`
   width:100%;
-  margin:0 auto;
-  color: #9aa0ac;
-  display: flex;
+  color: var(--white-color);
+  display: grid;
+  grid-template-columns: repeat(auto-fill,200px);
+  grid-template-rows:1fr;
   flex-wrap: wrap;
-  padding-left: 0;
   list-style: none;
-  margin: 0 -0.75rem;
+  padding-top:15px;
+  padding-bottom:45px;
+
   & li {
     margin-bottom: 0;
     position: relative;

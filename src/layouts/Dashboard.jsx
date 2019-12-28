@@ -12,12 +12,11 @@ const Container = styled.div`
   margin: 0 auto;
   font-family: var(--font-family);
   text-align:center;
-  background:#eee;
   display:grid;
   justify-content:space-between;  
   align-content:space-between;  
   grid-template-columns: repeat(9, 1fr);
-  grid-template-rows: 100px 1fr 100px;
+  grid-template-rows: auto 1fr auto;
   grid-auto-rows: minmax(100px, auto);
   grid-template-areas: 
     "sb sb hd hd hd hd hd hd hd"
