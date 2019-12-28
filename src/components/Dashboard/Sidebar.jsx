@@ -152,15 +152,14 @@ const Sidebar = () => {
           </NavElement>
           {
             dashboardRoutes.map((route, index) => {
-              return (
+              return route.sidebar ? (
                 <NavElement key={index}>
                   <CustomLink to={route.layout + route.path}>
                     <i className={route.icon} />
                     <p>{route.name}</p>
                   </CustomLink>
                 </NavElement>
-
-              );
+              ) : '';
             })
           }
         </Navigation>

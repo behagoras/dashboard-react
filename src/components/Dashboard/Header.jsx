@@ -62,11 +62,11 @@ const Header = () => {
       <HeaderList>
         {
           dashboardRoutes.map((route, index) => {
-            return (
+            return route.menu ? (
               <li key={index}>
                 <Link to={route.layout + route.path}>{route.name}</Link>
               </li>
-            );
+            ) : '';
           })
         }
 

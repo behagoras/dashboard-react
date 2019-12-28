@@ -1,9 +1,6 @@
 // core components/views for Admin layout
-import HelloWorld from '../components/HelloWorld';
 import PropertiesFront from '../pages/Front/PropertiesFront';
-// import PropertiesBack from '../pages/Dashboard/Properties';
 import PropertiesBig from '../pages/Dashboard/PropertiesBig';
-import MyForm from '../pages/Dashboard/Form';
 
 const dashboardRoutes = [
   {
@@ -15,17 +12,8 @@ const dashboardRoutes = [
     layout: '/front',
     exact: false,
     menu: true,
+    sidebar: true,
   },
-  // {
-  //   path: '/properties',
-  //   name: 'Properties Back',
-  //   rtlName: 'Properties Back',
-  //   icon: 'fas fa-home',
-  //   component: PropertiesBack,
-  //   layout: '/admin',
-  //   exact: false,
-  //   menu: true,
-  // },
   {
     path: '/properties-big',
     name: 'Properties Big',
@@ -35,16 +23,18 @@ const dashboardRoutes = [
     layout: '/admin',
     exact: false,
     menu: true,
+    sidebar: true,
   },
   {
     path: '/',
     name: 'Hello World',
     rtlName: 'Hello World',
     icon: 'fas fa-columns',
-    component: HelloWorld,
+    component: PropertiesBig,
     layout: '/admin',
     exact: false,
-    menu: true,
+    menu: false,
+    sidebar: false,
   },
 
 ];
