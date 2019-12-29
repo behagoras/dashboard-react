@@ -59,6 +59,14 @@ const Wizard = (props) => {
   const activePage = React.Children.toArray(children)[page];
   const isLastPage = page === React.Children.count(children) - 1;
 
+  const Buttons = styled.div`
+    display:grid;
+    grid-template-columns: repeat(auto-fit, 200px);
+    justify-content:center;
+    grid-gap:15px;
+    margin:30px auto;
+  `;
+
   return (
     <Card>
       <Form
@@ -69,7 +77,7 @@ const Wizard = (props) => {
         {({ handleSubmit, submitting, values }) => (
           <form onSubmit={handleSubmit}>
             {activePage}
-            <div className="buttons">
+            <Buttons className="buttons">
               {page > 0 && (
                 <Action
                   onClick={() => {
@@ -98,8 +106,8 @@ const Wizard = (props) => {
                 Next »
                 </Action>
               ) }
-            </div>
-            <pre>{JSON.stringify(state, 0, 2)}</pre>
+            </Buttons>
+            <pre>{JSON.stringify(values, 0, 2)}</pre>
           </form>
         )}
       </Form>

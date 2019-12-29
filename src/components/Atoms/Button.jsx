@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import Card from '../Utils/Card/Card';
 
 const Button = styled.button`
@@ -19,36 +20,24 @@ const Button = styled.button`
   border:none;
   background:none;
   text-decoration:none;
+
+  line-height: 1.15;
+  font-family: 'Titillium Web', sans-serif;
+  list-style: none;
+  box-sizing: border-box;
+  display: block;
+  text-decoration: none;
+  padding: 15px;
+  font-size: 20px;
+  float: left;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  transition: .5s ease;
+  background: var(--color-brand);
+  color: #ffffff;
+
+
   `;
 
-const ButtonCard = styled(Card)`
-  margin-bottom:-30px;
-  /* background:lightblue; */
-  & :hover{
-    box-shadow: 0 6px 6px -1px rgba(10, 22, 70, 0.3);
-    font-weight:500;
-  }
-`;
-
-const ButtonBody = styled.div`
-  display:grid;
-  grid-template-columns:auto auto;
-  grid-gap:10px;
-`;
-
-const Action = (props) => {
-  const { name, icon, className, onClick, children, to } = props;
-  return (
-    <Button className={className || ''} onClick={onClick || ''} to={to}>
-      <ButtonCard>
-        <ButtonBody>
-          <p>{name}</p>
-          <i className={icon || ''} />
-          {children}
-        </ButtonBody>
-      </ButtonCard>
-    </Button>
-  );
-};
-
-export default Action;
+export default Button;
