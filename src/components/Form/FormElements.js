@@ -15,7 +15,11 @@ const MyInput = styled.input`
 `;
 
 export const Input = (props) => {
-  const { input, meta, ...rest } = props;
+  const {
+    input,
+    meta,
+    ...rest
+  } = props;
   const { name, onChange, value, ...restInput } = input;
   return (
     <>
@@ -25,6 +29,8 @@ export const Input = (props) => {
         inputProps={restInput}
         onChange={onChange}
         value={value}
+        {...rest}
+        {...meta}
       />
     </>
   );
@@ -40,7 +46,11 @@ const MySelect = styled.select`
 `;
 
 export const Select = (props) => {
-  const { input, meta, ...rest } = props;
+  const {
+    input,
+    // meta,
+    // ...rest
+  } = props;
   const { name, onChange, value, ...restInput } = input;
   return (
     <>
@@ -65,7 +75,11 @@ const MyTextArea = styled.textarea`
 `;
 
 export const TextArea = (props) => {
-  const { input, meta, ...rest } = props;
+  const {
+    input,
+    // meta,
+    // ...rest
+  } = props;
   const { name, onChange, value, ...restInput } = input;
   return (
     <>
