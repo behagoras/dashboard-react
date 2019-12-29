@@ -1,52 +1,80 @@
 import React from 'react';
 import { Field } from 'react-final-form';
 import Wizard from '../../../../components/Form/Wizard';
-import { Label, Input } from '../../../../components/Form/FormElements';
+import { } from '../../../../components/Form/FormElements';
+import { Input, Label, InputGroup } from '../../../../components/Form/CoolInputs2';
+import Container from '../../../../components/Atoms/Container';
 
 const Page1 = () => {
   return (
     <Wizard.Page>
-      <div>
-        <h2 style={{ textAlign: 'left', fontSize: '20px' }}>Address</h2>
-        <Label htmlFor="street">street + number</Label>
+      <h2 style={{ textAlign: 'left', fontSize: '20px' }}>Address</h2>
+      <InputGroup>
         <Field
           name="street"
+          component={Input}
+          type="text"
+          required
+          autoComplete="off"
           id="street"
-          component={Input}
-          type="text"
-          placeholder="Street + number"
+          value="street"
         />
-      </div>
-      <div>
-        <Label htmlFor="city">City</Label>
-        <Field
-          id="city"
-          name="city"
-          component={Input}
-          type="text"
-          placeholder="City"
+        <Label
+          htmlFor="street"
+          title="Enter the property street followed by the house number"
+          data-title="street + number"
         />
-      </div>
-      <div>
-        <Label htmlFor="state">state</Label>
-        <Field
-          id="state"
-          name="state"
-          component={Input}
-          type="text"
-          placeholder="state"
-        />
-      </div>
-      <div>
-        <Label htmlFor="zip">Zip Code</Label>
-        <Field
-          id="zip"
-          name="zip"
-          component={Input}
-          type="text"
-          placeholder="Zip Code"
-        />
-      </div>
+      </InputGroup>
+      <Container columns="3">
+        <InputGroup>
+          <Field
+            name="city"
+            component={Input}
+            type="text"
+            required
+            autoComplete="off"
+            id="city"
+            value="city"
+          />
+          <Label
+            htmlFor="city"
+            title="Enter the property city"
+            data-title="city"
+          />
+        </InputGroup>
+        <InputGroup>
+          <Field
+            name="state"
+            component={Input}
+            type="text"
+            required
+            autoComplete="off"
+            id="state"
+            value="state"
+          />
+          <Label
+            htmlFor="state"
+            title="Enter the property state"
+            data-title="state"
+          />
+        </InputGroup>
+        <InputGroup>
+          <Field
+            name="zip"
+            component={Input}
+            type="text"
+            required
+            autoComplete="off"
+            id="zip"
+            value="zip"
+          />
+          <Label
+            htmlFor="zip"
+            title="Enter the property zip code"
+            data-title="zip code"
+          />
+        </InputGroup>
+      </Container>
       {/* <pre>{JSON.stringify(values, 0, 2)}</pre> */}
     </Wizard.Page>
   );

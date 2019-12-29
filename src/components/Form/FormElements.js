@@ -44,11 +44,13 @@ const MySelect = styled.select`
     border: 1px solid #ccc;
     border-radius: 3px;
     width:100%;
+    height:40px;
 `;
 
 const MyDataList = styled.datalist`
   flex: 1;
-  padding: 3px 5px;
+  /* padding: 3px 5px; */
+  height:40px;
   font-size: 1em;
   margin-left: 15px;
   border: 1px solid #ccc;

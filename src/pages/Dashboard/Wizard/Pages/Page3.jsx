@@ -2,41 +2,45 @@ import React from 'react';
 import { Field } from 'react-final-form';
 import styled from 'styled-components';
 import Wizard from '../../../../components/Form/Wizard';
-import { Label, Input, Select } from '../../../../components/Form/FormElements';
-
-const Container = styled.div`
-    display:grid;
-    grid-template-columns:repeat(${(props) => (props.columns ? props.columns : 1)},1fr);
-`;
+import { Select } from '../../../../components/Form/FormElements';
+// import Container from '../../../../components/Atoms/Container';
+import { Input, Label, InputGroup } from '../../../../components/Form/CoolInputs2';
 
 /* grid-template-columns: repeat(${props.columns}, 1fr); */
 // /* grid-template-columns:${props => props.columns? repeat({props.columns},1fr):1fr} */
-
+const Container = styled.div`
+  display:grid;
+  grid-template-columns:3fr 1fr;
+`;
 const Page1 = () => {
   return (
     <Wizard.Page>
       <h2 style={{ textAlign: 'left', fontSize: '20px' }}>Property Price</h2>
-      <Container columns="2">
-        <div>
-          <Label htmlFor="price">Price</Label>
+      <Container>
+        <InputGroup>
           <Field
             name="price"
-            id="price"
             component={Input}
             type="number"
-            min="1"
-            step="any"
-            placeholder="Price"
+            required
+            autoComplete="off"
+            id="price"
+            value="price"
           />
-        </div>
+          <Label
+            htmlFor="price"
+            title="Enter the property price"
+            data-title="price"
+          />
+        </InputGroup>
         <div>
-          <Label htmlFor="coin">Coin</Label>
+          {/* <Label htmlFor="coin">Coin</Label> */}
           <Field
             id="coin"
             name="coin"
             component={Select}
           >
-            <option value="">-- select one --</option>
+            <option value="">-- Select Currency --</option>
             <option value="mxn">
             MXN - Mexican Pesos
             </option>
