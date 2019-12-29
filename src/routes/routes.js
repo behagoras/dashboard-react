@@ -3,8 +3,20 @@ import PropertiesFront from '../pages/Front/PropertiesFront';
 import PropertiesBig from '../pages/Dashboard/PropertiesBig';
 import Wizard from '../pages/Dashboard/Wizard';
 import SingleFormPage from '../pages/Dashboard/SingleFormPage';
+import HelloWorld from '../components/HelloWorld';
 
 const dashboardRoutes = [
+  {
+    path: '/hello',
+    name: 'form',
+    rtlName: 'form',
+    icon: 'fas fa-home',
+    component: HelloWorld,
+    layout: '/admin',
+    exact: false,
+    menu: false,
+    sidebar: false,
+  },
   {
     path: '/form',
     name: 'form',

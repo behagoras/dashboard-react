@@ -3,6 +3,13 @@ import styled from 'styled-components';
 import Card from '../Utils/Card/Card';
 
 const Button = styled.button`
+  text-rendering: unset;
+  -webkit-appearance: unset;
+  align-items: unset;
+  display: block;
+  text-align: center;
+  text-indent:unset;
+  box-sizing: unset;
   color: var(--text-color);
   font-family:var(--font-family);
   font-size:var(--font-size);

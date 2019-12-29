@@ -4,6 +4,13 @@ import { Link } from 'react-router-dom';
 import Card from '../Utils/Card/Card';
 
 const Button = styled(Link)`
+  text-rendering: unset;
+  -webkit-appearance: unset;
+  align-items: unset;
+  display: block;
+  text-align: center;
+  text-indent:unset;
+  box-sizing: unset;
   color: var(--text-color);
   font-family:var(--font-family);
   font-size:var(--font-size);
@@ -13,11 +20,13 @@ const Button = styled(Link)`
   border:none;
   background:none;
   text-decoration:none;
+
   `;
 
 const ButtonCard = styled(Card)`
   margin-bottom:-30px;
   /* background:lightblue; */
+  width:fit-content;
   & :hover{
     box-shadow: 0 6px 6px -1px rgba(10, 22, 70, 0.3);
     font-weight:500;

@@ -1,7 +1,17 @@
 import React from 'react';
+import Button from './Atoms/Button';
+import Action from './Atoms/Action';
+import Card from './Utils/Card/Card';
 
 const HelloWorld = () => (
-  <h1>Hola Mundo desde React.js</h1>
+  <Card>
+    <Button>
+      Boton
+    </Button>
+    <Action>
+      Accion
+    </Action>
+  </Card>
 );
 
 export default HelloWorld;
