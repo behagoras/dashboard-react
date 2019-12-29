@@ -1,50 +1,95 @@
 import React from 'react';
 import { Field } from 'react-final-form';
 import Wizard from '../../../../components/Form/Wizard';
-import { Label, Input } from '../../../../components/Form/FormElements';
+import { Label, Input, Select, NationalitiesSelect } from '../../../../components/Form/FormElements';
 
 const Page1 = () => {
   return (
     <Wizard.Page>
       <div>
-        <h2 style={{ textAlign: 'left', fontSize: '20px' }}>Page 2</h2>
-        <Label htmlFor="street">street + number</Label>
+        <h2 style={{ textAlign: 'left', fontSize: '20px' }}>Personal data of the owner</h2>
+        <Label htmlFor="fullName">Full Name</Label>
         <Field
-          name="street"
-          id="street"
+          name="fullName"
+          id="fullName"
           component={Input}
           type="text"
-          placeholder="Street + number"
+          placeholder="Full Name"
         />
+        <Label htmlFor="gender">Gender</Label>
+        <Field
+          id="gender"
+          name="gender"
+          component={Select}
+        >
+          <option value="">-- select one --</option>
+          <option value="male">
+            male
+          </option>
+          <option value="female">
+            female
+          </option>
+        </Field>
+        <Label htmlFor="civilStatus">Civil Status</Label>
+        <Field
+          id="civilStatus"
+          name="civilStatus"
+          component={Select}
+        >
+          <option value="">-- select one --</option>
+          <option value="single">
+            Single
+          </option>
+          <option value="married">
+            Married
+          </option>
+          <option value="separated">
+            Separated
+          </option>
+          <option value="widowed">
+            Widowed
+          </option>
+        </Field>
       </div>
       <div>
-        <Label htmlFor="city">City</Label>
+        <h2 style={{ textAlign: 'left', fontSize: '20px' }}>Contact data of the owner</h2>
+        <Label htmlFor="residencePhone">Residence Phone</Label>
         <Field
-          id="city"
-          name="city"
+          id="residencePhone"
+          name="residencePhone"
           component={Input}
-          type="text"
-          placeholder="City"
+          type="phone"
+          placeholder="Residence Phone"
         />
-      </div>
-      <div>
-        <Label htmlFor="state">state</Label>
+        <Label htmlFor="mobilePhone">Mobile Phone</Label>
         <Field
-          id="state"
-          name="state"
+          id="mobilePhone"
+          name="mobilePhone"
           component={Input}
-          type="text"
-          placeholder="state"
+          type="mobilePhone"
+          placeholder="Mobile Phone"
         />
-      </div>
-      <div>
-        <Label htmlFor="zip">Zip Code</Label>
+        <Label htmlFor="email">E-mail</Label>
         <Field
-          id="zip"
-          name="zip"
+          id="email"
+          name="email"
+          component={Input}
+          type="email"
+          placeholder="E-mail"
+        />
+        <Label htmlFor="birthplace">Country of birth</Label>
+        <Field
+          id="birthplace"
+          name="birthplace"
           component={Input}
           type="text"
-          placeholder="Zip Code"
+          placeholder="Country of birth"
+        />
+        <Label htmlFor="nationalities">Nationalities</Label>
+        <Field
+          id="nationalities"
+          name="nationalities"
+          component={NationalitiesSelect}
         />
       </div>
       {/* <pre>{JSON.stringify(values, 0, 2)}</pre> */}
