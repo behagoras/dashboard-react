@@ -5,16 +5,15 @@ import styled from 'styled-components';
 import { Form } from 'react-final-form';
 import Card from '../Utils/Card/Card';
 import Button from '../Atoms/Button';
+import Action from '../Atoms/Action';
 
 // const propTypes = {
 //   onSubmit: PropTypes.func.isRequired,
 // };
 
 const Page = styled.div``;
-let Page2;
 
 const Wizard = (props) => {
-  Page2 = ({ children }) => children;
   const [state, setState] = useState({
     page: 0,
     values: props.initialValues || {},
@@ -32,15 +31,9 @@ const Wizard = (props) => {
   };
 
   const previous = (values) => {
-    // const { values } = form;
-    console.log('values', values);
-    return setState(() => {
-      return (
-        {
-          page: Math.max(state.page - 1, 0),
-          values,
-        }
-      );
+    setState({
+      page: parseInt(state.page, 10) - 1,
+      values,
     });
   };
 
@@ -55,25 +48,10 @@ const Wizard = (props) => {
     const { children, onSubmit } = props;
     const { page } = state;
     const isLastPage = page === React.Children.count(children) - 1;
-
     if (isLastPage) {
       return onSubmit(values);
     }
-    // state.next ? next(values) : previous(values);
-    true ? next(values) : previous(values);
-  };
-
-  const handleNext = () => {
-    setState({
-      ...state,
-      next: true,
-    });
-  };
-  const handlePrevious = () => {
-    setState({
-      ...state,
-      next: false,
-    });
+    next(values);
   };
 
   const { children } = props;
@@ -88,28 +66,40 @@ const Wizard = (props) => {
         validate={validate}
         onSubmit={handleSubmit}
       >
-        {({ handleSubmit, submitting, values, form }) => (
+        {({ handleSubmit, submitting, values }) => (
           <form onSubmit={handleSubmit}>
             {activePage}
             <div className="buttons">
               {page > 0 && (
-                <Button
-                  type="button"
+                <Action
                   onClick={() => {
                     previous(values);
                   }}
                 >
                « Previous
-                </Button>
+                </Action>
               )}
-              {!isLastPage && <Button type="submit">Next »</Button>}
-              {isLastPage && (
-                <Button type="submit" onClick={handleNext} disabled={submitting}>
-               Submit
+
+              {isLastPage ? (
+                <Button
+                  type="submit"
+                  disabled={submitting}
+                >
+                Submit
                 </Button>
-              )}
+              ) : (
+                <Action
+                  type="button"
+                  disabled={submitting}
+                  onClick={() => {
+                    next(values);
+                  }}
+                >
+                Next »
+                </Action>
+              ) }
             </div>
-            <pre>{JSON.stringify(values, 0, 2)}</pre>
+            <pre>{JSON.stringify(state, 0, 2)}</pre>
           </form>
         )}
       </Form>
@@ -119,5 +109,4 @@ const Wizard = (props) => {
 };
 
 Wizard.Page = Page;
-Wizard.Page2 = Page2;
 export default Wizard;
