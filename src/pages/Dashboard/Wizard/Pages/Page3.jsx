@@ -62,6 +62,40 @@ const Page1 = () => {
           </Field>
         </div>
       </Container>
+
+      <InputGroup>
+        <Field
+          name="title"
+          component={Input}
+          type="text"
+          required
+          autoComplete="off"
+          id="title"
+          value="title"
+        />
+        <Label
+          htmlFor="title"
+          title="Enter a title that describes the property"
+          data-title="Title"
+        />
+      </InputGroup>
+      <InputGroup>
+        <Field
+          name="description"
+          component={Input}
+          type="text"
+          required
+          autoComplete="off"
+          id="description"
+          value="description"
+        />
+        <Label
+          htmlFor="description"
+          title="Enter a description that describes the property"
+          data-title="Full description"
+        />
+      </InputGroup>
+
       {/* <pre>{JSON.stringify(values, 0, 2)}</pre> */}
     </Wizard.Page>
   );

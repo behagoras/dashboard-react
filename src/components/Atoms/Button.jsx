@@ -37,6 +37,9 @@ const Button = styled.button`
   background: var(--color-brand);
   color: #ffffff;
 
+  & :hover {
+    background:var(--color-dark);
+  }
 
   `;
 

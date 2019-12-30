@@ -80,12 +80,11 @@ const Wizard = (props) => {
             <Buttons className="buttons">
               {page > 0 && (
                 <Action
+                  name="« Previous"
                   onClick={() => {
                     previous(values);
                   }}
-                >
-               « Previous
-                </Action>
+                />
               )}
 
               {isLastPage ? (
@@ -103,7 +102,7 @@ const Wizard = (props) => {
                     next(values);
                   }}
                 >
-                Next »
+                  Next »
                 </Action>
               ) }
             </Buttons>

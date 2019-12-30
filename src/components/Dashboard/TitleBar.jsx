@@ -31,7 +31,14 @@ const _TitleBar = ({ children, title, name, icon, className, actions, history, h
               <Actions>
                 {
                   actions.map(((action) => (
-                    <Button float="right" className={{ float: 'right' }} name={action.name} icon={action.icon} onClick={handleClick} to={action.to} />
+                    <Button
+                      float="right"
+                      className={{ float: 'right' }}
+                      name={action.name}
+                      icon={action.icon}
+                      onClick={handleClick}
+                      to={action.to}
+                    />
                   )))
                 }
               </Actions>

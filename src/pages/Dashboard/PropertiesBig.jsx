@@ -62,7 +62,10 @@ const Properties = () => {
 
   return (
     <>
-      <TitleBar title="Properties" actions={[{ name: 'Add Property', icon: 'fas fa-plus-square', to: '/admin/form' }]} />
+      <TitleBar
+        title="Properties"
+        actions={[{ name: 'Add Property', icon: 'fas fa-plus-square', to: '/admin/add-property' }]}
+      />
       <Card>
         <Table>
           <TableHead>

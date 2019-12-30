@@ -1,25 +1,8 @@
+import React from 'react';
+import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import styled from 'styled-components';
-
-const Action = styled(Link)`
-  /* text-rendering: unset;
-  -webkit-appearance: unset;
-  align-items: unset;
-  display: block;
-  text-align: center;
-  text-indent:unset;
-  box-sizing: unset;
-  color: var(--text-color);
-  font-family:var(--font-family);
-  font-size:var(--font-size);
-  cursor: pointer;
-  font-weight:400;
-  padding: 0;
-  border:none;
-  background:none;
-  text-decoration:none; */
-
+const ButtonDiv = styled.div`
   line-height: 1.15;
   font-family: 'Titillium Web', sans-serif;
   list-style: none;
@@ -35,6 +18,45 @@ const Action = styled(Link)`
   transition: .5s ease;
   background: var(--color-brand-light);
   color: #ffffff;
+  & :hover {
+    background: var(--color-brand);
+  }
   `;
+
+const Button = (props) => {
+  const { children, to, className, onClick } = props;
+  return to ? (
+    <Link to={to}>
+      <ButtonDiv className={className || ''} onClick={onClick || ''}>
+        {children}
+      </ButtonDiv>
+    </Link>
+  ) : (
+    <ButtonDiv className={className || ''} onClick={onClick || ''}>
+      {children}
+    </ButtonDiv>
+  );
+};
+
+const ButtonBody = styled.div`
+    display: grid;
+    grid-template-columns: ${(props) => (props.icon ? 'auto auto' : 'auto')};
+    justify-content: center;
+    align-content: center;
+    grid-gap: 15px;
+`;
+
+const Action = (props) => {
+  const { name, icon, className, onClick, children, to } = props;
+  return (
+    <Button className={className || ''} onClick={onClick || ''} to={to}>
+      <ButtonBody icon={icon}>
+        {children}
+        {name ? <p>{name}</p> : ''}
+        {icon ? (<i className={icon} />) : ''}
+      </ButtonBody>
+    </Button>
+  );
+};
 
 export default Action;

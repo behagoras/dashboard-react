@@ -29,7 +29,7 @@ const dashboardRoutes = [
     sidebar: false,
   },
   {
-    path: '/wizard',
+    path: '/add-property',
     name: 'Wizard',
     rtlName: 'Wizard',
     icon: 'fas fa-home',
