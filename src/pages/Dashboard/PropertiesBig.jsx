@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Card from '../../components/Utils/Card';
 import propertiesMock from '../../mock/properties1.json';
-import getProperties from '../../data/getProperties';
+import { getProperties } from '../../data/crudProperties';
 import TitleBar from '../../components/Dashboard/TitleBar';
 
 const Table = styled.table`

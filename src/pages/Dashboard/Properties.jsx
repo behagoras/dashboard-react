@@ -3,7 +3,7 @@ import Card, { CardHeader, CardBody, CardFooter } from '../../components/Utils/C
 import CustomTable from '../../components/Utils/Table/CustomTable';
 import propertiesMock from '../../mock/properties1.json';
 
-import getProperties from '../../data/getProperties';
+import { getProperties } from '../../data/crudProperties';
 
 const Properties = () => {
   const [properties, setProperties] = useState(propertiesMock);
