@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ReactSVG } from 'react-svg';
 
 const Characteristic = styled.div`
     display:grid;

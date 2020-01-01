@@ -4,6 +4,7 @@ import PropertiesBig from '../pages/Dashboard/PropertiesBig';
 import Wizard from '../pages/Dashboard/Wizard/WizardPage';
 import SingleFormPage from '../pages/Dashboard/SingleFormPage';
 import HelloWorld from '../components/HelloWorld';
+import PropertyDetails from '../pages/Dashboard/PropertyDetails';
 
 const dashboardRoutes = [
   {
@@ -40,16 +41,28 @@ const dashboardRoutes = [
     sidebar: false,
   },
   {
-    path: '/property/:_id',
+    path: '/property/edit/:_id',
     name: 'Wizard',
     rtlName: 'Wizard',
     icon: 'fas fa-home',
     component: Wizard,
     layout: '/admin',
-    exact: false,
+    exact: true,
     menu: false,
     sidebar: false,
   },
+  {
+    path: '/property/:_id',
+    name: 'Wizard',
+    rtlName: 'Wizard',
+    icon: 'fas fa-home',
+    component: PropertyDetails,
+    layout: '/admin',
+    exact: true,
+    menu: false,
+    sidebar: false,
+  },
+
   {
     path: '/properties',
     name: 'Properties Front',
