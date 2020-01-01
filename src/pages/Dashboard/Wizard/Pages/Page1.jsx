@@ -5,7 +5,17 @@ import { } from '../../../../components/Form/FormElements';
 import { Input, Label, InputGroup } from '../../../../components/Form/CoolInputs2';
 import Container from '../../../../components/Atoms/Container';
 
+const Error = ({ name }) => (
+  <Field
+    name={name}
+    subscribe={{ touched: true, error: true }}
+    render={({ meta: { touched, error } }) => (touched && error ? <span>{error}</span> : null)}
+  />
+);
+
 const Page1 = () => {
+  const required = (value) => (value ? undefined : 'Required');
+
   return (
     <Wizard.Page>
       <h2 style={{ textAlign: 'left', fontSize: '20px' }}>Address</h2>
@@ -14,16 +24,19 @@ const Page1 = () => {
           name="street"
           component={Input}
           type="text"
-          required
+          validate={required}
           autoComplete="off"
           id="street"
           value="street"
+
         />
         <Label
           htmlFor="street"
           title="Enter the property street followed by the house number"
           data-title="street + number"
         />
+        <Error name="firstName" />
+
       </InputGroup>
       <Container columns="3">
         <InputGroup>
