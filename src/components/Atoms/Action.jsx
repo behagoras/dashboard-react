@@ -21,6 +21,10 @@ const ButtonDiv = styled.div`
   & :hover {
     background: var(--color-brand);
   }
+  &[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
   `;
 
 const Button = (props) => {

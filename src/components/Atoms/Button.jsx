@@ -40,6 +40,10 @@ const Button = styled.button`
   & :hover {
     background:var(--color-dark);
   }
+  &[disabled] {
+    background: var(--color-grey);
+    cursor: not-allowed;
+  }
 
   `;
 
