@@ -5,7 +5,17 @@ import { Select, NationalitiesSelect } from '../../../../components/Form/FormEle
 import { Input, Label, InputGroup } from '../../../../components/Form/CoolInputs2';
 import Container from '../../../../components/Atoms/Container';
 
-const Page1 = () => {
+const Error = ({ name }) => (
+  <Field
+    name={name}
+    subscribe={{ touched: true, error: true }}
+    render={({ meta: { touched, error } }) => (touched && error ? <span>{error}</span> : null)}
+  />
+);
+
+const required = (value) => (value ? undefined : 'Required');
+
+const Page2 = () => {
   return (
     <Wizard.Page>
       <div>
@@ -25,44 +35,50 @@ const Page1 = () => {
             title="Enter your full name"
             data-title="Full Name"
           />
+          <Error name="fullName" />
+
         </InputGroup>
       </div>
       <div>
         <h2 style={{ textAlign: 'left', fontSize: '20px' }}>Contact data of the owner</h2>
-        <Container columns="2">
-          <InputGroup>
-            <Field
-              name="residencePhone"
-              component={Input}
-              type="phone"
-              required
-              autoComplete="off"
-              id="residencePhone"
-              value="residencePhone"
-            />
-            <Label
-              htmlFor="residencePhone"
-              title="Enter your residence phone"
-              data-title="residencePhone"
-            />
-          </InputGroup>
-          <InputGroup>
-            <Field
-              name="mobilePhone"
-              component={Input}
-              type="phone"
-              required
-              autoComplete="off"
-              id="mobilePhone"
-              value="mobilePhone"
-            />
-            <Label
-              htmlFor="mobilePhone"
-              title="Enter your mobile phone"
-              data-title="CellPhone"
-            />
-          </InputGroup>
-        </Container>
+        {/* <Container columns="2"> */}
+        <InputGroup>
+          <Field
+            name="residencePhone"
+            component={Input}
+            type="phone"
+            required
+            autoComplete="off"
+            id="residencePhone"
+            value="residencePhone"
+          />
+          <Label
+            htmlFor="residencePhone"
+            title="Enter your residence phone"
+            data-title="residencePhone"
+          />
+          <Error name="residencePhone" />
+
+        </InputGroup>
+        <InputGroup>
+          <Field
+            name="mobilePhone"
+            component={Input}
+            type="phone"
+            required
+            autoComplete="off"
+            id="mobilePhone"
+            value="mobilePhone"
+          />
+          <Label
+            htmlFor="mobilePhone"
+            title="Enter your mobile phone"
+            data-title="CellPhone"
+          />
+          <Error name="CellPhone" />
+
+        </InputGroup>
+        {/* </Container> */}
         <Container columns="3">
           <InputGroup>
             <Field
@@ -79,6 +95,8 @@ const Page1 = () => {
               title="Enter your email"
               data-title="E-mail"
             />
+            <Error name="email" />
+
           </InputGroup>
           <InputGroup>
             <Field
@@ -93,8 +111,10 @@ const Page1 = () => {
             <Label
               htmlFor="birthplace"
               title="Enter your country of birth"
-              data-title="E-mail"
+              data-title="Country of birth"
             />
+            <Error name="birthplace" />
+
           </InputGroup>
           <InputGroup>
             <Field
@@ -111,18 +131,22 @@ const Page1 = () => {
               title="Enter your civil status"
               data-title="Civil Status"
             />
+            <Error name="civilStatus" />
+
           </InputGroup>
         </Container>
         <Container columns="2">
-          <div>
+          {/* <div>
             <Label htmlFor="nationality">What is your Nationality</Label>
             <Field
               id="nationality"
               name="nationality"
               component={NationalitiesSelect}
             />
-          </div>
-          <div>
+            <Error name="nationality" />
+
+          </div> */}
+          {/* <div>
             <Label htmlFor="gender">What is your Gender</Label>
             <Field
               id="gender"
@@ -140,7 +164,9 @@ const Page1 = () => {
               I rather not to say
               </option>
             </Field>
-          </div>
+            <Error name="gender" />
+
+          </div> */}
         </Container>
       </div>
       {/* <pre>{JSON.stringify(values, 0, 2)}</pre> */}
@@ -148,4 +174,4 @@ const Page1 = () => {
   );
 };
 
-export default Page1;
+export default Page2;

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Field } from 'react-final-form';
 import Wizard from '../../../../components/Form/Wizard';
-import { } from '../../../../components/Form/FormElements';
 import { Input, Label, InputGroup } from '../../../../components/Form/CoolInputs2';
 import Container from '../../../../components/Atoms/Container';
 
@@ -13,10 +12,10 @@ const Error = ({ name }) => (
   />
 );
 
-const Page1 = () => {
-  const required = (value) => (value ? undefined : 'Required');
+const required = (value) => (value ? undefined : 'Required');
 
-  return (
+const Page1 = (props) => {
+  const content = (
     <Wizard.Page>
       <h2 style={{ textAlign: 'left', fontSize: '20px' }}>Address</h2>
       <InputGroup>
@@ -28,14 +27,13 @@ const Page1 = () => {
           autoComplete="off"
           id="street"
           value="street"
-
         />
         <Label
           htmlFor="street"
           title="Enter the property street followed by the house number"
           data-title="street + number"
         />
-        <Error name="firstName" />
+        <Error name="street" />
 
       </InputGroup>
       <Container columns="3">
@@ -44,8 +42,8 @@ const Page1 = () => {
             name="city"
             component={Input}
             type="text"
-            required
             autoComplete="off"
+            validate={required}
             id="city"
             value="city"
           />
@@ -54,13 +52,14 @@ const Page1 = () => {
             title="Enter the property city"
             data-title="city"
           />
+          <Error name="city" />
+
         </InputGroup>
         <InputGroup>
           <Field
             name="state"
             component={Input}
             type="text"
-            required
             autoComplete="off"
             id="state"
             value="state"
@@ -70,13 +69,14 @@ const Page1 = () => {
             title="Enter the property state"
             data-title="state"
           />
+          <Error name="state" />
+
         </InputGroup>
         <InputGroup>
           <Field
             name="zip"
             component={Input}
             type="text"
-            required
             autoComplete="off"
             id="zip"
             value="zip"
@@ -86,11 +86,16 @@ const Page1 = () => {
             title="Enter the property zip code"
             data-title="zip code"
           />
+          <Error name="zip" />
+
         </InputGroup>
       </Container>
       {/* <pre>{JSON.stringify(values, 0, 2)}</pre> */}
     </Wizard.Page>
   );
+  return content;
 };
+
+console.log('Page1.content', Page1.content);
 
 export default Page1;

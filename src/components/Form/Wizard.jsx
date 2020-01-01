@@ -1,48 +1,57 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Form } from 'react-final-form';
 import Card from '../Utils/Card/Card';
 import Button from '../Atoms/Button';
 import Action from '../Atoms/Action';
 
-// const propTypes = {
-//   onSubmit: PropTypes.func.isRequired,
-// };
-
-const Page = styled.div``;
+const Buttons = styled.div`
+  display:grid;
+  grid-template-columns: repeat(auto-fit, 200px);
+  justify-content:center;
+  grid-gap:15px;
+  margin:30px auto;
+`;
 
 const Wizard = (props) => {
+
+  Wizard.propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+  };
+
+  // constructor
   const [state, setState] = useState({
     page: 0,
     values: props.initialValues || {},
   });
 
-  const next = (values) => {
-    return setState(() => {
-      return (
-        {
-          page: Math.min(state.page + 1, props.children.length - 1),
-          values,
-        }
-      );
-    });
-  };
-
-  const previous = (values) => {
-    setState({
-      page: parseInt(state.page, 10) - 1,
-      values,
-    });
-  };
-
   const validate = (values) => {
+    console.log('values', values);
+    console.log('props.children', props.children);
+    console.log('React.Children.toArray(props.children)', React.Children.toArray(props.children));
+
     const activePage = React.Children.toArray(props.children)[
       state.page
     ];
+    console.log('activePage.props', activePage.props);
+    console.log('activePage', activePage);
     return activePage.props.validate ? activePage.props.validate(values) : {};
   };
+
+  const next = (values) => setState((state) => {
+    (JSON.stringify(validate(values)));
+    return ({
+      page: Math.min(state.page + 1, props.children.length - 1),
+      values,
+    });
+  });
+
+  const previous = (values) => setState((state) => ({
+    page: Math.max(state.page - 1, 0),
+    values,
+  }));
 
   const handleSubmit = (values) => {
     const { children, onSubmit } = props;
@@ -59,13 +68,7 @@ const Wizard = (props) => {
   const activePage = React.Children.toArray(children)[page];
   const isLastPage = page === React.Children.count(children) - 1;
 
-  const Buttons = styled.div`
-    display:grid;
-    grid-template-columns: repeat(auto-fit, 200px);
-    justify-content:center;
-    grid-gap:15px;
-    margin:30px auto;
-  `;
+  Wizard.Page.validate = validate;
 
   return (
     <Card>
@@ -73,8 +76,9 @@ const Wizard = (props) => {
         initialValues={values}
         validate={validate}
         onSubmit={handleSubmit}
+
       >
-        {({ handleSubmit, submitting, values }) => (
+        {({ handleSubmit, submitting, values, pristine }) => (
           <form onSubmit={handleSubmit}>
             {activePage}
             <Buttons className="buttons">
@@ -90,7 +94,7 @@ const Wizard = (props) => {
               {isLastPage ? (
                 <Button
                   type="submit"
-                  disabled={submitting}
+                  disabled={submitting || pristine}
                 >
                 Submit
                 </Button>
@@ -115,5 +119,8 @@ const Wizard = (props) => {
 
 };
 
-Wizard.Page = Page;
+Wizard.Page = (props) => {
+  return props.children;
+};
+
 export default Wizard;

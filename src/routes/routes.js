@@ -1,7 +1,7 @@
 // core components/views for Admin layout
 import PropertiesFront from '../pages/Front/PropertiesFront';
 import PropertiesBig from '../pages/Dashboard/PropertiesBig';
-import Wizard from '../pages/Dashboard/Wizard';
+import Wizard from '../pages/Dashboard/Wizard/WizardPage';
 import SingleFormPage from '../pages/Dashboard/SingleFormPage';
 import HelloWorld from '../components/HelloWorld';
 
