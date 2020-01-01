@@ -9,6 +9,7 @@ export const getProperties = async () => {
 };
 
 export const createProperty = async (values) => {
+
   const {
     street,
     city,
@@ -54,15 +55,23 @@ export const createProperty = async (values) => {
       currency: coin,
     },
   };
-  const userData = await axios(
-    {
-      url: 'https://express-api.behagoras.now.sh/api/properties',
-      method: 'post',
-      data: payload,
-    },
-  );
+
+  const userData = await axios({
+    url: 'https://express-api.behagoras.now.sh/api/properties',
+    method: 'post',
+    data: payload,
+  });
 
   return userData;
 
+};
+
+export const getProperty = async (_uid) => {
+  const userData = await axios({
+    url: `https://express-api.behagoras.now.sh/api/properties/${_uid}`,
+    method: 'get',
+  });
+
+  return userData;
 };
 

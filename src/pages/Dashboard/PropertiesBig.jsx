@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Card from '../../components/Utils/Card';
 import propertiesMock from '../../mock/properties1.json';
-import { getProperties } from '../../data/crudProperties';
+import { getProperties, getProperty } from '../../data/crudProperties';
 import TitleBar from '../../components/Dashboard/TitleBar';
 
 const Table = styled.table`
@@ -52,6 +52,14 @@ const Properties = () => {
     const data = await getProperties();
     setProperties(data.data);
   }
+
+  const handleClick = async (property, event) => {
+    const { _id } = property;
+    const myProperty = await getProperty(_id);
+    console.log('myProperty', myProperty);
+    // debugger;
+  };
+
   getProperties().then((data) => {
     console.log('data', data);
   });
@@ -86,8 +94,10 @@ const Properties = () => {
                   description,
                   prices,
                 } = property;
+
+                // eslint-disable-next-line react/jsx-no-bind
                 return (
-                  <TableRow key={_id}>
+                  <TableRow key={_id} onClick={handleClick.bind(this, property)}>
                     <TableCell>
                       <Image src={img.src} alt={title} />
                     </TableCell>
