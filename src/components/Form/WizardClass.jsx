@@ -2,8 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Form } from 'react-final-form';
 import styled from 'styled-components';
+import { useParams } from 'react-router-dom';
 import Button from '../Atoms/Button';
 import Action from '../Atoms/Action';
+import { getProperty, propertyToState } from '../../data/crudProperties';
 
 const Buttons = styled.div`
   display:grid;
@@ -14,6 +16,7 @@ const Buttons = styled.div`
 `;
 
 export default class Wizard extends React.Component {
+
   // eslint-disable-next-line react/static-property-placement
   static propTypes = {
     onSubmit: PropTypes.func.isRequired,
@@ -60,6 +63,31 @@ export default class Wizard extends React.Component {
     }
     this.next(values);
 
+  }
+
+  async componentDidMount() {
+    // const params = useParams();
+    console.log('WizardClassThis:', this.props);
+    const { _id } = this.props;
+    // useEffect(async () => {
+    if (_id) {
+      const myProperty = await getProperty(_id);
+      const { data } = myProperty.data;
+      console.log('myProperty', myProperty);
+      console.log('data', data);
+      // this.setState({ data });
+      // console.log('state', state);
+      this.setState({
+        ...this.state,
+        values: {
+          ...propertyToState(data),
+        },
+      });
+
+      // debugger;
+    }
+
+  // }, []);
   }
 
   render() {

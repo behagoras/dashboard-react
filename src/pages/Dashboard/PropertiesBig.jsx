@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
 import Card from '../../components/Utils/Card';
 import propertiesMock from '../../mock/properties1.json';
 import { getProperties, getProperty } from '../../data/crudProperties';
@@ -47,6 +48,7 @@ const DescriptionText = styled.p`
 `;
 
 const Properties = () => {
+  const history = useHistory();
   const [properties, setProperties] = useState(propertiesMock);
   async function fetchMyAPI() {
     const data = await getProperties();
@@ -55,9 +57,7 @@ const Properties = () => {
 
   const handleClick = async (property, event) => {
     const { _id } = property;
-    const myProperty = await getProperty(_id);
-    console.log('myProperty', myProperty);
-    // debugger;
+    history.push(`/admin/property/${_id}`);
   };
 
   getProperties().then((data) => {

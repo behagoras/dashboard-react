@@ -1,15 +1,52 @@
 import axios from 'axios';
 
-export const getProperties = async () => {
-  const response = await fetch('https://express-api.behagoras.now.sh/api/properties', {
-    mode: 'cors',
-  });
-  const data = await response.json();
-  return data;
+export const propertyToState = (property) => {
+  const {
+    _id,
+    title,
+    description,
+    // img,
+    address,
+    owner,
+    prices } = property;
+  // const { src } = img;
+  const { street, city, state, zip } = address;
+  const {
+    fullName,
+    residencePhone,
+    email,
+    birthplace,
+    mobilePhone,
+    // gender,
+  } = owner;
+  const {
+    amount,
+    // formattedAmount,
+    // currencyUid,
+    currency,
+  } = prices;
+
+  return {
+    _id,
+    street,
+    city,
+    state,
+    zip,
+    fullName,
+    residencePhone,
+    email,
+    birthplace,
+    mobilePhone,
+    civilStatus: 'N/A',
+    coin: currency,
+    title,
+    description,
+    price: amount,
+  };
+
 };
 
-export const createProperty = async (values) => {
-
+export const stateToProperty = (values) => {
   const {
     street,
     city,
@@ -55,15 +92,15 @@ export const createProperty = async (values) => {
       currency: coin,
     },
   };
+  return payload;
+};
 
-  const userData = await axios({
-    url: 'https://express-api.behagoras.now.sh/api/properties',
-    method: 'post',
-    data: payload,
+export const getProperties = async () => {
+  const response = await fetch('https://express-api.behagoras.now.sh/api/properties', {
+    mode: 'cors',
   });
-
-  return userData;
-
+  const data = await response.json();
+  return data;
 };
 
 export const getProperty = async (_uid) => {
@@ -73,5 +110,19 @@ export const getProperty = async (_uid) => {
   });
 
   return userData;
+};
+
+export const createProperty = async (values) => {
+
+  const payload = stateToProperty(values);
+
+  const userData = await axios({
+    url: 'https://express-api.behagoras.now.sh/api/properties',
+    method: 'post',
+    data: payload,
+  });
+
+  return userData;
+
 };
 
