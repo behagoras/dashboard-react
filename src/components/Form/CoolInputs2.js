@@ -19,8 +19,8 @@ const MyInput = styled.input`
     & :focus {
         outline: 0;
         border-color: blue;
-    }
-    & :valid + label::before {
+    }    
+    & :not([value=""]) + label::before {
         line-height: 20px;
         font-size: 12px;
         top: -10px;
