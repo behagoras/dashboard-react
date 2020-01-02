@@ -36,6 +36,9 @@ const dashboardRoutes = [
     icon: 'fas fa-home',
     component: Wizard,
     layout: '/admin',
+    props: {
+      type: 'create',
+    },
     exact: true,
     menu: false,
     sidebar: false,
@@ -47,6 +50,9 @@ const dashboardRoutes = [
     icon: 'fas fa-home',
     component: Wizard,
     layout: '/admin',
+    props: {
+      type: 'update',
+    },
     exact: true,
     menu: false,
     sidebar: false,

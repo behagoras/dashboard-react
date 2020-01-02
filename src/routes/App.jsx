@@ -24,7 +24,9 @@ const App = () => {
                 dashboardRoutes.map((route, index) => {
                   return (
                     <Route path={route.layout + route.path} exact={route.exact} key={index}>
-                      <route.component />
+                      <route.component
+                        {...route.props}
+                      />
                     </Route>
                   );
                 })
