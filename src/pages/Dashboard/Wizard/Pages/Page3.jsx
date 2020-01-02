@@ -83,7 +83,7 @@ const Page1 = () => {
         <Field
           name="description"
           component={Input}
-          type="text"
+          type="textarea"
           required
           autoComplete="off"
           id="description"

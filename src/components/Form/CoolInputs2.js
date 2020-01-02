@@ -1,6 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 import styled from 'styled-components';
 import React from 'react';
+import ReactHtmlParser from 'react-html-parser';
 
 export const InputGroup = styled.div`
     position: relative;
@@ -40,6 +41,39 @@ const MyInput = styled.input`
     }
 `;
 
+const MyTextArea = styled.textarea`
+    padding:0 20px;
+    width: 100%;
+    line-height: 20px;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #222;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    & :focus {
+        outline: 0;
+        border-color: blue;
+    }    
+    & :not([value=""]) + label::before {
+        line-height: 20px;
+        font-size: 12px;
+        top: -10px;
+        background: #fff;
+        padding: 0 6px;
+        left: 9px;        
+        content: attr(data-title);
+    }
+    & :focus + label::before {
+        line-height: 20px;
+        font-size: 12px;
+        top: -10px;
+        background: #fff;
+        padding: 0 6px;
+        left: 9px;        
+        color: blue;
+    }
+`;
+
 export const Input = (props) => {
   const {
     id,
@@ -48,8 +82,22 @@ export const Input = (props) => {
     ...rest
   } = props;
   const { type, name, onChange, value, ...restInput } = input;
+  if (type === 'textarea') {
+    return (
+      <MyTextArea
+        id={id}
+        name={name}
+        // error={showError}
+        inputProps={restInput}
+        onChange={onChange}
+        value={value}
+        type={type}
+        {...rest}
+        {...meta}
+      />
+    );
+  }
   return (
-
     <MyInput
       id={id}
       name={name}
@@ -62,6 +110,7 @@ export const Input = (props) => {
       {...meta}
     />
   );
+
 };
 
 export const Label = styled.label`
