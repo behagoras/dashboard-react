@@ -46,7 +46,6 @@ const Page2 = () => {
             name="residencePhone"
             component={Input}
             type="phone"
-            validate={required}
             autoComplete="off"
             id="residencePhone"
             value="residencePhone"
@@ -64,7 +63,6 @@ const Page2 = () => {
             name="mobilePhone"
             component={Input}
             type="phone"
-            validate={required}
             autoComplete="off"
             id="mobilePhone"
             value="mobilePhone"

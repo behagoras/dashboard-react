@@ -157,7 +157,7 @@ const Properties = () => {
                       </DescriptionText>
                     </TableCell>
                     <TableCell>
-                      {`$${prices.formattedAmount} ${prices.currency}`}
+                      {`${prices.formattedAmount} ${prices.currency.toUpperCase()}`}
                     </TableCell>
                     <TableCell>
                       <IconAction onClick={handleDelete.bind(this, property)} color="red" icon="fa fa-trash" to={to} />

@@ -61,10 +61,10 @@ const Page3 = () => {
             <option value="cad">
             CAD - Canadian Dollars
             </option>
-            <option value="widowed">
+            <option value="ypy">
             YPY - Japanese Yens
             </option>
-            <option value="widowed">
+            <option value="cop">
             COP - Colombian Pesos
             </option>
           </Field>
