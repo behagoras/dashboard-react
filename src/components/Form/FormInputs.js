@@ -1,7 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import styled from 'styled-components';
 import React from 'react';
-import ReactHtmlParser from 'react-html-parser';
 
 export const InputGroup = styled.div`
     position: relative;
@@ -125,3 +124,36 @@ export const Label = styled.label`
         transition: 300ms all;
     }
 `;
+
+const MySelect = styled.select`
+    flex: 1;
+    padding: 3px 5px;
+    font-size: 1em;
+    margin-left: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width:100%;
+    height:40px;
+`;
+
+export const Select = (props) => {
+  const {
+    input,
+    meta,
+    ...rest
+  } = props;
+  const { name, onChange, value, ...restInput } = input;
+  return (
+    <>
+      <MySelect
+        name={name}
+        // error={showError}
+        inputProps={restInput}
+        onChange={onChange}
+        value={value}
+        {...rest}
+        {...meta}
+      />
+    </>
+  );
+};

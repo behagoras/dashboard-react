@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field } from 'react-final-form';
 import Wizard from '../../../../components/Form/Wizard';
-import { Input, Label, InputGroup } from '../../../../components/Form/CoolInputs2';
+import { Input, Label, InputGroup } from '../../../../components/Form/FormInputs';
 import Container from '../../../../components/Atoms/Container';
 
 const Error = ({ name }) => (
@@ -87,10 +87,8 @@ const Page1 = (props) => {
             data-title="zip code"
           />
           <Error name="zip" />
-
         </InputGroup>
       </Container>
-      {/* <pre>{JSON.stringify(values, 0, 2)}</pre> */}
     </Wizard.Page>
   );
   return content;

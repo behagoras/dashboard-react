@@ -2,17 +2,24 @@ import React from 'react';
 import { Field } from 'react-final-form';
 import styled from 'styled-components';
 import Wizard from '../../../../components/Form/Wizard';
-import { Select } from '../../../../components/Form/FormElements';
-// import Container from '../../../../components/Atoms/Container';
-import { Input, Label, InputGroup } from '../../../../components/Form/CoolInputs2';
+import { Input, Label, InputGroup, Select } from '../../../../components/Form/FormInputs';
 
-/* grid-template-columns: repeat(${props.columns}, 1fr); */
-// /* grid-template-columns:${props => props.columns? repeat({props.columns},1fr):1fr} */
+const Error = ({ name }) => (
+  <Field
+    name={name}
+    subscribe={{ touched: true, error: true }}
+    render={({ meta: { touched, error } }) => (touched && error ? <span>{error}</span> : null)}
+  />
+);
+
 const Container = styled.div`
   display:grid;
   grid-template-columns:3fr 1fr;
 `;
-const Page1 = () => {
+
+const required = (value) => (value ? undefined : 'Required');
+
+const Page3 = () => {
   return (
     <Wizard.Page>
       <h2 style={{ textAlign: 'left', fontSize: '20px' }}>Property Price</h2>
@@ -22,7 +29,7 @@ const Page1 = () => {
             name="price"
             component={Input}
             type="number"
-            required
+            validate={required}
             autoComplete="off"
             id="price"
             value="price"
@@ -32,9 +39,10 @@ const Page1 = () => {
             title="Enter the property price"
             data-title="price"
           />
+          <Error name="price" />
+
         </InputGroup>
         <div>
-          {/* <Label htmlFor="coin">Coin</Label> */}
           <Field
             id="coin"
             name="coin"
@@ -60,6 +68,8 @@ const Page1 = () => {
             COP - Colombian Pesos
             </option>
           </Field>
+          <Error name="coin" />
+
         </div>
       </Container>
 
@@ -68,7 +78,7 @@ const Page1 = () => {
           name="title"
           component={Input}
           type="text"
-          required
+          validate={required}
           autoComplete="off"
           id="title"
           value="title"
@@ -78,13 +88,15 @@ const Page1 = () => {
           title="Enter a title that describes the property"
           data-title="Title"
         />
+        <Error name="title" />
+
       </InputGroup>
       <InputGroup>
         <Field
           name="description"
           component={Input}
           type="textarea"
-          required
+          validate={required}
           autoComplete="off"
           id="description"
           value="description"
@@ -94,11 +106,10 @@ const Page1 = () => {
           title="Enter a description that describes the property"
           data-title="Full description"
         />
+        <Error name="description" />
       </InputGroup>
-
-      {/* <pre>{JSON.stringify(values, 0, 2)}</pre> */}
     </Wizard.Page>
   );
 };
 
-export default Page1;
+export default Page3;

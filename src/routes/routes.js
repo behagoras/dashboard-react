@@ -1,8 +1,7 @@
 // core components/views for Admin layout
 import PropertiesFront from '../pages/Front/PropertiesFront';
-import PropertiesBig from '../pages/Dashboard/PropertiesBig';
+import Properties from '../pages/Dashboard/Properties';
 import Wizard from '../pages/Dashboard/Wizard/WizardPage';
-import SingleFormPage from '../pages/Dashboard/SingleFormPage';
 import HelloWorld from '../components/HelloWorld';
 import PropertyDetails from '../pages/Dashboard/PropertyDetails';
 
@@ -13,17 +12,6 @@ const dashboardRoutes = [
     rtlName: 'form',
     icon: 'fas fa-home',
     component: HelloWorld,
-    layout: '/admin',
-    exact: false,
-    menu: false,
-    sidebar: false,
-  },
-  {
-    path: '/form',
-    name: 'form',
-    rtlName: 'form',
-    icon: 'fas fa-home',
-    component: SingleFormPage,
     layout: '/admin',
     exact: false,
     menu: false,
@@ -85,7 +73,7 @@ const dashboardRoutes = [
     name: 'Properties',
     rtlName: 'Properties',
     icon: 'fas fa-home',
-    component: PropertiesBig,
+    component: Properties,
     layout: '/admin',
     exact: false,
     menu: true,
@@ -96,7 +84,7 @@ const dashboardRoutes = [
     name: 'Hello World',
     rtlName: 'Hello World',
     icon: 'fas fa-columns',
-    component: PropertiesBig,
+    component: Properties,
     layout: '',
     exact: false,
     menu: false,

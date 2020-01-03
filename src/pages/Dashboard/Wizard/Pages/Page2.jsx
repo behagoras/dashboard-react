@@ -1,8 +1,7 @@
 import React from 'react';
 import { Field } from 'react-final-form';
 import Wizard from '../../../../components/Form/Wizard';
-import { Select, NationalitiesSelect } from '../../../../components/Form/FormElements';
-import { Input, Label, InputGroup } from '../../../../components/Form/CoolInputs2';
+import { Input, Label, InputGroup } from '../../../../components/Form/FormInputs';
 import Container from '../../../../components/Atoms/Container';
 
 const Error = ({ name }) => (
@@ -25,7 +24,7 @@ const Page2 = () => {
             name="fullName"
             component={Input}
             type="text"
-            required
+            validate={required}
             autoComplete="off"
             id="fullName"
             value="fullName"
@@ -47,7 +46,7 @@ const Page2 = () => {
             name="residencePhone"
             component={Input}
             type="phone"
-            required
+            validate={required}
             autoComplete="off"
             id="residencePhone"
             value="residencePhone"
@@ -65,7 +64,7 @@ const Page2 = () => {
             name="mobilePhone"
             component={Input}
             type="phone"
-            required
+            validate={required}
             autoComplete="off"
             id="mobilePhone"
             value="mobilePhone"
@@ -79,13 +78,13 @@ const Page2 = () => {
 
         </InputGroup>
         {/* </Container> */}
-        <Container columns="3">
+        <Container columns="2">
           <InputGroup>
             <Field
               name="email"
               component={Input}
               type="text"
-              required
+              validate={required}
               autoComplete="off"
               id="email"
               value="email"
@@ -103,7 +102,7 @@ const Page2 = () => {
               name="birthplace"
               component={Input}
               type="text"
-              required
+              validate={required}
               autoComplete="off"
               id="birthplace"
               value="birthplace"
@@ -116,60 +115,10 @@ const Page2 = () => {
             <Error name="birthplace" />
 
           </InputGroup>
-          <InputGroup>
-            <Field
-              name="civilStatus"
-              component={Input}
-              type="text"
-              required
-              autoComplete="off"
-              id="civilStatus"
-              value="civilStatus"
-            />
-            <Label
-              htmlFor="civilStatus"
-              title="Enter your civil status"
-              data-title="Civil Status"
-            />
-            <Error name="civilStatus" />
 
-          </InputGroup>
         </Container>
-        <Container columns="2">
-          {/* <div>
-            <Label htmlFor="nationality">What is your Nationality</Label>
-            <Field
-              id="nationality"
-              name="nationality"
-              component={NationalitiesSelect}
-            />
-            <Error name="nationality" />
-
-          </div> */}
-          {/* <div>
-            <Label htmlFor="gender">What is your Gender</Label>
-            <Field
-              id="gender"
-              name="gender"
-              component={Select}
-            >
-              <option value="">-- select one --</option>
-              <option value="male">
-            Male
-              </option>
-              <option value="female">
-            Female
-              </option>
-              <option value="other">
-              I rather not to say
-              </option>
-            </Field>
-            <Error name="gender" />
-
-          </div> */}
-        </Container>
+        <Container columns="2" />
       </div>
-      {/* <pre>{JSON.stringify(values, 0, 2)}</pre> */}
     </Wizard.Page>
   );
 };

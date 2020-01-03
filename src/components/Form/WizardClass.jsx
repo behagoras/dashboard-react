@@ -1,3 +1,5 @@
+/* eslint-disable react/no-did-mount-set-state */
+/* eslint-disable react/no-access-state-in-setstate */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Form } from 'react-final-form';
@@ -66,7 +68,6 @@ export default class Wizard extends React.Component {
 
   async componentDidMount() {
     // const params = useParams();
-    console.log('WizardClassThis:', this.props);
     const { _id } = this.props;
     // useEffect(async () => {
     if (_id) {
