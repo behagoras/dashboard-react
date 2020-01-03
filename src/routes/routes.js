@@ -81,9 +81,9 @@ const dashboardRoutes = [
     sidebar: true,
   },
   {
-    path: '/properties-big',
-    name: 'Properties Big',
-    rtlName: 'Properties Big',
+    path: '/properties',
+    name: 'Properties',
+    rtlName: 'Properties',
     icon: 'fas fa-home',
     component: PropertiesBig,
     layout: '/admin',

@@ -15,7 +15,7 @@ const SidebarContainer = styled.aside`
   bottom: 0;
   /* width: 260px; */
   left: 0;
-  z-index: 1031;
+  z-index: 4;
   background:var(--brand-color);
   @media (min-width: 991px) {
       display: block;

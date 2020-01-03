@@ -24,8 +24,8 @@ const WizardPage = (props) => {
     } else if (type === 'create') {
       const response = await createProperty(values);
       console.log(response);
-
     }
+
   };
 
   return (

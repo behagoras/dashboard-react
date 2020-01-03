@@ -2,10 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Form } from 'react-final-form';
 import styled from 'styled-components';
-import { useParams } from 'react-router-dom';
 import Button from '../Atoms/Button';
-import Action from '../Atoms/Action';
-import { getProperty, propertyToState } from '../../data/crudProperties';
+import { propertyToState } from '../../actions';
+import { getProperty } from '../../data/crudProperties';
 
 const Buttons = styled.div`
   display:grid;

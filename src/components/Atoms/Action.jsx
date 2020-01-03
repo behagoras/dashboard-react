@@ -11,7 +11,6 @@ const ButtonDiv = styled.div`
   text-decoration: none;
   padding: 15px;
   font-size: 20px;
-  float: left;
   width: 100%;
   text-align: center;
   cursor: pointer;
@@ -26,17 +25,18 @@ const ButtonDiv = styled.div`
     cursor: not-allowed;
   }
   `;
+const emptyCallback = () => {};
 
 const Button = (props) => {
   const { children, to, className, onClick } = props;
   return to ? (
     <Link to={to}>
-      <ButtonDiv className={className || ''} onClick={onClick || ''}>
+      <ButtonDiv className={className || ''} onClick={onClick || emptyCallback}>
         {children}
       </ButtonDiv>
     </Link>
   ) : (
-    <ButtonDiv className={className || ''} onClick={onClick || ''}>
+    <ButtonDiv className={className || ''} onClick={onClick || emptyCallback}>
       {children}
     </ButtonDiv>
   );
@@ -53,7 +53,7 @@ const ButtonBody = styled.div`
 const Action = (props) => {
   const { name, icon, className, onClick, children, to } = props;
   return (
-    <Button className={className || ''} onClick={onClick || ''} to={to}>
+    <Button className={className || ''} onClick={onClick || emptyCallback} to={to}>
       <ButtonBody icon={icon}>
         {children}
         {name ? <p>{name}</p> : ''}

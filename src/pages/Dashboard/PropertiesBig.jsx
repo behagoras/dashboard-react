@@ -3,8 +3,10 @@ import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 import Card from '../../components/Utils/Card';
 import propertiesMock from '../../mock/properties1.json';
-import { getProperties, getProperty } from '../../data/crudProperties';
+import { getProperties, deleteProperty } from '../../data/crudProperties';
 import TitleBar from '../../components/Dashboard/TitleBar';
+import IconAction from '../../components/Atoms/IconAction';
+import Modal from '../../components/Modal/AsyncModal';
 
 const Table = styled.table`
     max-width: 100%;
@@ -47,17 +49,60 @@ const DescriptionText = styled.p`
   min-width: 60px;
 `;
 
+const modalRef = React.createRef();
+
 const Properties = () => {
   const history = useHistory();
   const [properties, setProperties] = useState(propertiesMock);
+  const [modalText, setModalText] = useState('');
+
   async function fetchMyAPI() {
     const data = await getProperties();
     setProperties(data.data);
   }
 
-  const handleClick = async (property, event) => {
+  const showModal = () => {
+    // const $modal = document.getElementById('modal');
+    const $modal = modalRef.current;
+
+    setTimeout(async () => {
+      try {
+        // Wait user to confirm !
+        const result = await $modal.show();
+        // this line below is executed only after user click on OK
+        alert('OK');
+      } catch (err) {
+        alert(err);
+      }
+    }, 100);
+    console.log('Waiting user for confirmation ...');
+  };
+
+  const handleView = async (property, event) => {
+    event.preventDefault();
     const { _id } = property;
     history.push(`/admin/property/${_id}`);
+  };
+
+  const handleEdit = async (property, event) => {
+    event.preventDefault();
+    const { _id } = property;
+    history.push(`/admin/property/edit/${_id}`);
+  };
+
+  const handleDelete = async (property, event) => {
+    event.preventDefault();
+    const { _id } = property;
+    setModalText('Are you sure you want to delete the property?');
+    const $modal = modalRef.current;
+    try {
+      await $modal.show();
+      const property = await deleteProperty(_id);
+      console.log(property);
+      fetchMyAPI();
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   getProperties().then((data) => {
@@ -74,6 +119,7 @@ const Properties = () => {
         title="Properties"
         actions={[{ name: 'Add Property', icon: 'fas fa-plus-square', to: '/admin/add-property' }]}
       />
+      <Modal id="modal" ref={modalRef} text={modalText} />
       <Card>
         <Table>
           <TableHead>
@@ -82,6 +128,7 @@ const Properties = () => {
               <TableCell>Title</TableCell>
               <TableCell>Description</TableCell>
               <TableCell>Price</TableCell>
+              <TableCell />
             </tr>
           </TableHead>
           <TableBody>
@@ -94,10 +141,14 @@ const Properties = () => {
                   description,
                   prices,
                 } = property;
+                const to = `/${_id}`;
 
                 // eslint-disable-next-line react/jsx-no-bind
                 return (
-                  <TableRow key={_id} onClick={handleClick.bind(this, property)}>
+                  <TableRow
+                    // onClick={handleView.bind(this, property)}
+                    key={_id}
+                  >
                     <TableCell>
                       <Image src={img.src} alt={title} />
                     </TableCell>
@@ -111,6 +162,11 @@ const Properties = () => {
                     </TableCell>
                     <TableCell>
                       {`$${prices.formattedAmount} ${prices.currency}`}
+                    </TableCell>
+                    <TableCell>
+                      <IconAction onClick={handleDelete.bind(this, property)} color="red" icon="fa fa-trash" to={to} />
+                      <IconAction onClick={handleEdit.bind(this, property)} color="" icon="fa fa-edit" to={to} />
+                      <IconAction onClick={handleView.bind(this, property)} color="" icon="fas fa-eye" to={to} />
                     </TableCell>
                   </TableRow>
                 );
