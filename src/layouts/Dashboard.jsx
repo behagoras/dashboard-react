@@ -21,7 +21,13 @@ const Container = styled.div`
   grid-template-areas: 
     "sb sb hd hd hd hd hd hd hd"
     "sb sb mn mn mn mn mn mn mn"
-    "sb  sb  ft  ft ft ft ft ft ft";
+    "sb sb ft  ft ft ft ft ft ft";
+  @media  screen and (max-width: 720px) {
+    grid-template-areas: 
+      "hd hd hd hd hd hd hd hd hd"
+      "mn mn mn mn mn mn mn mn mn"
+      "ft ft ft ft ft ft ft ft ft";
+  }
 `;
 
 const Dashboard = ({ children }) => {

@@ -9,7 +9,8 @@ const Footer = () => {
 
   return (
     <FooterWrapper>
-      Footer Content
+      Made with ❤️ by
+      <a href="https://github.com/behagoras" style={{ color: 'var(--color-dark)' }} target="_blank"> David Behar</a>
     </FooterWrapper>
   );
 };
