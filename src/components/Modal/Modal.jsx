@@ -9,7 +9,7 @@ const ModalWrapper = styled.div`
     display: none;
     overflow: auto;
     position: fixed;
-    z-index: 1500;
+    z-index: 11;
     top: 0;
     left: 0;
     width: 100%;

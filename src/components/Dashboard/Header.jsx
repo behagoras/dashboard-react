@@ -14,9 +14,13 @@ const HeaderContainer = styled.nav`
   padding: 0 ;
   border-bottom: 1px solid rgba(0, 40, 100, 0.12);
   margin:auto;
+  @media  screen and (max-width: 720px){
+    transform: translate(0);
+    transition: transform 0.7s ease-in-out;
+  }
 `;
 
-const HeaderList = styled.ul`
+const MenuList = styled.ul`
   width:100%;
   color: var(--white-color);
   display: grid;
@@ -26,6 +30,7 @@ const HeaderList = styled.ul`
   list-style: none;
   padding-top:15px;
   padding-bottom:45px;
+
 
   & li {
     margin-bottom: 0;
@@ -53,25 +58,33 @@ const HeaderList = styled.ul`
       color: #467fcf;
       background: transparent;
     }
+
+    @media  screen and (max-width: 720px) { 
+      display:none;
+    }
+
   }
 `;
 
 const Header = () => {
   return (
-    <HeaderContainer>
-      <HeaderList>
-        {
-          dashboardRoutes.map((route, index) => {
-            return route.menu ? (
-              <li key={index}>
-                <Link to={route.layout + route.path}>{route.name}</Link>
-              </li>
-            ) : '';
-          })
-        }
+    <>
 
-      </HeaderList>
-    </HeaderContainer>
+      <HeaderContainer>
+        <MenuList>
+          {
+            dashboardRoutes.map((route, index) => {
+              return route.menu ? (
+                <li key={index}>
+                  <Link to={route.layout + route.path}>{route.name}</Link>
+                </li>
+              ) : '';
+            })
+          }
+        </MenuList>
+
+      </HeaderContainer>
+    </>
   );
 };
 
