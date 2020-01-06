@@ -30,7 +30,7 @@ const Page1 = (props) => {
         />
         <Label
           htmlFor="street"
-          title="Enter the property street followed by the house number"
+          title="Property street + house number"
           data-title="street + number"
         />
         <Error name="street" />

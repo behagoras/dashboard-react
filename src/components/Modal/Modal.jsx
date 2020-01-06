@@ -5,35 +5,35 @@ import Action from '../Atoms/Action';
 import _Card from '../Utils/Card/Card';
 
 const ModalWrapper = styled.div`
-    background-color: rgba(0,0,0,.65);
-    display: none;
-    overflow: auto;
-    position: fixed;
-    z-index: 11;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display:${(props) => (props.visible ? 'grid' : 'none')};
-    grid-gap:50px;
-    justify-items: center;
-    align-items: center;
+  background-color: rgba(0,0,0,.65);
+  display: none;
+  overflow: auto;
+  position: fixed;
+  z-index: 11;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display:${(props) => (props.visible ? 'grid' : 'none')};
+  grid-gap:50px;
+  justify-items: center;
+  align-items: center;
 `;
 
 const Card = styled(_Card)`
-    width:calc(100vw - 100px);
-    margin: auto;
+  width:calc(100vw - 100px);
+  margin: auto;
 `;
 
 const Content = styled.div``;
 
 const Buttons = styled.div`
-    display:grid;
-    grid-template-columns: 1fr;
-    grid-gap:10px;
-    min-width:400px;
-    width:30%;
-    margin:0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+  width: 400px;
+  max-width: 100%;
+  margin: 0 auto;
 `;
 
 const Modal = (props) => {

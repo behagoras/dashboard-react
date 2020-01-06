@@ -10,34 +10,72 @@ import IconAction from '../../components/Atoms/IconAction';
 import Modal from '../../components/Modal/AsyncModal';
 
 const Table = styled.table`
-    max-width: 100%;
-    margin-bottom: 1rem;
-    margin-left: 30px;
-    margin-right: 30px;
-    background-color: transparent;
-    margin-bottom: 0;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  margin-left: 30px;
+  margin-right: 30px;
+  background-color: transparent;
+  margin-bottom: 0;
+  @media (max-width: 720px) {
+    margin:0;
+    display:block;
+    width:100%;
+  }
 `;
 const TableHead = styled.thead`
-    font-weight:bold;
-    color: #FFF;
-    position: relative;
-    background: linear-gradient(60deg,var(--color-brand),var(--color-brand-contrast));
-    box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px var(--color-dark);
-    border-radius: 3px;
+  font-weight:bold;
+  color: #FFF;
+  position: relative;
+  background: linear-gradient(60deg,var(--color-brand),var(--color-brand-contrast));
+  box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px var(--color-dark);
+  border-radius: 3px;
+  @media (max-width: 720px) {
+    display:none;
+  }
 `;
 
-const TableBody = styled.tbody``;
+const TableBody = styled.tbody`
+  @media (max-width: 720px) {
+    margin:0;
+    display:block;
+    width:100%;
+  }
+`;
 const TableRow = styled.tr`
   & :hover{
     background:var(--color-grey-light);
   }
+  @media (max-width: 720px) {
+    width: 100%;
+    display:grid;
+    grid-template-columns:1fr;
+    border-radius:15px;
+    box-shadow: 0 6px 6px -1px var(--color-dark-ultralight);
+    text-overflow: ellipsis; 
+    overflow: hidden; 
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
 `;
 const TableCell = styled.td`
-    max-width: 40vw;
-    padding: 0.75rem;
-    vertical-align: top;
-    border-top: 1px solid #dee2e6;
-    padding-left: 1.5rem;
+  max-width: 40vw;
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+  padding-left: 1.5rem;
+  @media (max-width: 720px) {
+    display:block;
+    max-width:100%;
+    max-height:139px;
+    overflow:hidden;
+    & :nth-of-type(3){
+      display:none;
+    }
+    & :nth-of-type(5) {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
 `;
 const Image = styled.img`
   max-width:100%;
@@ -48,6 +86,15 @@ const DescriptionText = styled.p`
   -webkit-box-orient: vertical;
   overflow: hidden;
   min-width: 60px;
+`;
+
+const CenterCard = styled.div`
+  display: flex;
+  max-width: 100%;
+  justify-items: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 const modalRef = React.createRef();

@@ -6,6 +6,9 @@ import _Button from '../Atoms/Action';
 const TitleBar = styled.div`
   display:grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  @media (max-width: 720px) {
+    grid-template-columns:1fr;
+  }
 `;
 
 const Actions = styled.div``;

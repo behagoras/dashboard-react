@@ -9,17 +9,33 @@ import Card from '../../components/Utils/Card/Card';
 import Action from '../../components/Atoms/Action';
 import Price from '../../components/Atoms/Price';
 
+const ActionsCard = styled(Card)`
+  grid-area:"actions";
+`;
+
 const Content = styled.section``;
 const Actions = styled.aside`
   position:sticky;
   top: 0;
   display:block;
+  grid-area:"content";
 `;
 const ImgContainer = styled.figure``;
 const Container = styled.div`
   display:grid;
   grid-template-columns:3fr 1fr;
   width:100%;
+  & img{
+    width: 100%;
+    height:100%;
+  }
+  @media (max-width: 720px) {
+    grid-template-columns:1fr;
+    grid-template-rows:auto auto;
+    grid-template-areas: 
+    "actions"
+    "content"
+  }
   /* max-width:50vw; */
 `;
 
@@ -49,6 +65,25 @@ const DescriptionText = styled.div`
     display:  ${(props) => (!props.open ? 'block' : 'none')};
   }
 }
+`;
+
+const Title = styled.h1`
+  @media (max-width: 720px) {
+    text-align:left;
+  }
+
+`;
+
+const Description = styled.h2`
+  @media (max-width: 720px) {
+    text-align:left;
+  }
+`;
+
+const PriceWrapper = styled.div`
+  @media (max-width: 720px) {
+    text-align:left;
+  }
 `;
 
 const PropertyDetails = () => {
@@ -87,9 +122,9 @@ const PropertyDetails = () => {
         {/* <pre>{JSON.stringify(initialState, 0, 2)}</pre> */}
         <Content>
           <Card>
-            <h1>{state.title}</h1>
-            <h2>{`${state.address.street},${state.address.city},${state.address.state},${state.address.zip}`}</h2>
-            <Price price={[state.prices.amount, state.prices.currency]} />
+            <Title>{state.title}</Title>
+            <Description>{`${state.address.street},${state.address.city},${state.address.state},${state.address.zip}`}</Description>
+            <PriceWrapper><Price price={[state.prices.amount, state.prices.currency]} /></PriceWrapper>
           </Card>
           <Card>
             <DescriptionContainer>
@@ -125,7 +160,7 @@ const PropertyDetails = () => {
             </div>
           </Card>
         </Content>
-        <Card>
+        <ActionsCard>
           <Actions>
             <ImgContainer>
               <img src={state.img.src} alt={state.title} />
@@ -138,7 +173,7 @@ const PropertyDetails = () => {
               to={`/admin/property/edit/${_id}`}
             />
           </Actions>
-        </Card>
+        </ActionsCard>
       </Container>
       {/* <Card><pre style={{ textAlign: 'left', background: '#333', color: '#ccc', padding: '30px' }}>{JSON.stringify(state, null, 2)}</pre></Card> */}
 

@@ -15,6 +15,9 @@ const Error = ({ name }) => (
 const Container = styled.div`
   display:grid;
   grid-template-columns:3fr 1fr;
+  @media (max-width: 720px) {
+    grid-template-columns:2fr 2fr;
+  }
 `;
 
 const required = (value) => (value ? undefined : 'Required');
@@ -36,7 +39,7 @@ const Page3 = () => {
           />
           <Label
             htmlFor="price"
-            title="Enter the property price"
+            title="Property price"
             data-title="price"
           />
           <Error name="price" />
@@ -48,7 +51,7 @@ const Page3 = () => {
             name="coin"
             component={Select}
           >
-            <option value="">-- Select Currency --</option>
+            <option value="">-Currency-</option>
             <option value="mxn">
             MXN - Mexican Pesos
             </option>
