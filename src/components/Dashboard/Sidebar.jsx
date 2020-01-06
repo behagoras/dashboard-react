@@ -155,10 +155,6 @@ const CustomLink = styled(Link)`
   
 `;
 
-const NavigationIcon = styled.figure`
-  width:50px;
-`;
-
 const Sidebar = () => {
   const [isActive, setIsActive] = useState(false);
   const handleHamburgerClick = (event) => {

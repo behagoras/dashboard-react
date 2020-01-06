@@ -1,28 +1,18 @@
 // core components/views for Admin layout
 import PropertiesFront from '../pages/Front/PropertiesFront';
 import Properties from '../pages/Dashboard/Properties';
-import Wizard from '../pages/Dashboard/Wizard/WizardPage';
-import HelloWorld from '../components/HelloWorld';
+import AddProperty from '../pages/Dashboard/Wizard/AddProperty';
+import UpdateProperty from '../pages/Dashboard/Wizard/UpdateProperty';
 import PropertyDetails from '../pages/Dashboard/PropertyDetails';
 
 const dashboardRoutes = [
-  {
-    path: '/hello',
-    name: 'form',
-    rtlName: 'form',
-    icon: 'fas fa-home',
-    component: HelloWorld,
-    layout: '/admin',
-    exact: false,
-    menu: false,
-    sidebar: false,
-  },
+
   {
     path: '/add-property',
     name: 'Wizard',
     rtlName: 'Wizard',
     icon: 'fas fa-home',
-    component: Wizard,
+    component: AddProperty,
     layout: '/admin',
     props: {
       type: 'create',
@@ -36,7 +26,7 @@ const dashboardRoutes = [
     name: 'Wizard',
     rtlName: 'Wizard',
     icon: 'fas fa-home',
-    component: Wizard,
+    component: UpdateProperty,
     layout: '/admin',
     props: {
       type: 'update',
@@ -81,8 +71,8 @@ const dashboardRoutes = [
   },
   {
     path: '/',
-    name: 'Hello World',
-    rtlName: 'Hello World',
+    name: 'Properties',
+    rtlName: 'Properties',
     icon: 'fas fa-columns',
     component: Properties,
     layout: '',
