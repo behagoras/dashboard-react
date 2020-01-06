@@ -20,6 +20,11 @@ module.exports = {
 
     rules: [
       {
+        test: /\.(jpe?g|png|gif)$/i,
+        loader: 'file-loader?name=img/[name].[ext]',
+      },
+
+      {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {

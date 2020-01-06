@@ -188,12 +188,7 @@ const Sidebar = () => {
         </LogoContainer>
         <SidebarContent>
           <Navigation>
-            <NavElement selected>
-              <CustomLink to="/" onClick={handleLinkClick}>
-                <i className="fas fa-columns" />
-                <p>Dashboard</p>
-              </CustomLink>
-            </NavElement>
+
             {
               dashboardRoutes.map((route, index) => {
                 return route.sidebar ? (

@@ -8,6 +8,9 @@ import { getProperties, deleteProperty } from '../../data/crudProperties';
 import TitleBar from '../../components/Dashboard/TitleBar';
 import IconAction from '../../components/Atoms/IconAction';
 import Modal from '../../components/Modal/AsyncModal';
+import placeholder from '../../assets/img/placeholder.png';
+
+const placeholder2 = `/${placeholder}`;
 
 const Table = styled.table`
   max-width: 100%;
@@ -193,7 +196,7 @@ const Properties = () => {
                     key={_id}
                   >
                     <TableCell>
-                      <Image src={img.src} alt={title} />
+                      <Image src={img.src || placeholder2} alt={title} />
                     </TableCell>
                     <TableCell>
                       {title}

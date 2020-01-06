@@ -72,7 +72,7 @@ const dashboardRoutes = [
     path: '/properties',
     name: 'Properties',
     rtlName: 'Properties',
-    icon: 'fas fa-home',
+    icon: 'fas fa-columns',
     component: Properties,
     layout: '/admin',
     exact: false,
