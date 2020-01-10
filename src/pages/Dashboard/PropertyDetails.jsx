@@ -23,7 +23,7 @@ const Actions = styled.aside`
 const ImgContainer = styled.figure``;
 const Container = styled.div`
   display:grid;
-  grid-template-columns:3fr 1fr;
+  grid-template-columns:1fr 1fr;
   width:100%;
   & img{
     width: 100%;
