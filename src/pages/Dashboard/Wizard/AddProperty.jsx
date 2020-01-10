@@ -32,6 +32,15 @@ const WizardPage = (props) => {
 
   };
 
+  const handleImageSuccess = (file) => {
+    console.log('handleImageSuccess, Uploaded file:', file);
+    const { path } = JSON.parse(file.xhr.response).data[0];
+    console.log('path', path);
+    const $imageSource = document.getElementById('imageSource');
+    $imageSource.value = path;
+    window.setFormValue('imageSource', path);
+  };
+
   return (
     <Card>
       <TitleBar title="Add Property" actions={[]} />
@@ -39,7 +48,7 @@ const WizardPage = (props) => {
         onSubmit={onSubmit}
         _id={params ? params._id : ''}
       >
-        <Page1 />
+        <Page1 handleImageSuccess={handleImageSuccess} />
         <Page2 />
         <Page3 />
       </Wizard>

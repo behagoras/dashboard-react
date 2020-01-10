@@ -80,10 +80,11 @@ export const stateToProperty = (values) => {
   } = values;
 
   const payload = {};
+
   // debugger;
   title ? payload.title = title : '';
   description ? payload.description = description : '';
-  imageSource ? payload.image.src = imageSource : '';
+  // imageSource ? payload.image.src = imageSource : '';
   payload.address = {};
   street ? payload.address.street = street : '';
   city ? payload.address.city = city : '';

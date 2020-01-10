@@ -100,31 +100,41 @@ export default class Wizard extends React.Component {
         initialValues={values}
         validate={this.validate}
         onSubmit={this.handleSubmit}
-      >
-        {({ handleSubmit, submitting, pristine, values }) => (
-          <form onSubmit={handleSubmit}>
-            {activePage}
-            <Buttons>
-              {page > 0 && (
-                <Button type="button" onClick={this.previous}>
-                  « Previous
-                </Button>
-              )}
-              {!isLastPage && <Button type="submit">Next »</Button>}
-              {isLastPage && (
-                <Button
-                  type="submit"
-                  disabled={submitting || pristine}
-                >
-                  Submit
-                </Button>
-              )}
-            </Buttons>
 
-            {/* <pre>{JSON.stringify(values, 0, 2)}</pre> */}
-          </form>
-        )}
-      </Form>
+        mutators={{
+          // expect (field, value) args from the mutator
+          setValue: ([field, value], state, { changeValue }) => {
+            changeValue(state, field, () => value);
+          },
+        }}
+        render={({ handleSubmit, submitting, pristine, values, form, ...rest }) => {
+          // put the reference on a window variable of your choice here
+          if (!window.setFormValue) window.setFormValue = form.mutators.setValue;
+          return (
+            <form onSubmit={handleSubmit}>
+              {activePage}
+              <Buttons>
+                {page > 0 && (
+                  <Button type="button" onClick={this.previous}>
+                  « Previous
+                  </Button>
+                )}
+                {!isLastPage && <Button type="submit">Next »</Button>}
+                {isLastPage && (
+                  <Button
+                    type="submit"
+                    disabled={submitting || pristine}
+                  >
+                  Submit
+                  </Button>
+                )}
+              </Buttons>
+
+              {/* <pre>{JSON.stringify(values, 0, 2)}</pre> */}
+            </form>
+          );
+        }}
+      />
     );
   }
 }

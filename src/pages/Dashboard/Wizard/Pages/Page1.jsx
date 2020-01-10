@@ -3,6 +3,7 @@ import { Field } from 'react-final-form';
 import Wizard from '../../../../components/Form/Wizard';
 import { Input, Label, InputGroup } from '../../../../components/Form/FormInputs';
 import Container from '../../../../components/Atoms/Container';
+import Dropzone from '../../../../components/Atoms/Dropzone';
 
 const Error = ({ name }) => (
   <Field
@@ -15,8 +16,38 @@ const Error = ({ name }) => (
 const required = (value) => (value ? undefined : 'Required');
 
 const Page1 = (props) => {
+  const { handleImageSuccess } = props;
   const content = (
     <Wizard.Page>
+      {
+        handleImageSuccess ? (
+          <>
+            <h2 style={{ textAlign: 'left', fontSize: '20px' }}>Property Image</h2>
+            <InputGroup>
+              <Dropzone
+                apiUrl="https://express-api.behagoras.now.sh/api/images"
+                onSuccess={handleImageSuccess}
+              // onDelete={handleImageDelete}
+              />
+              <Field
+                name="imageSource"
+                component={Input}
+                type="hidden"
+                // validate={required}
+                autoComplete="off"
+                id="imageSource"
+                value="imageSource"
+              />
+              <Label
+                htmlFor="imageSource"
+                title="Add an image for your property"
+                data-title="Property Image"
+              />
+            </InputGroup>
+          </>
+        ) :
+          <img src="" alt="" />
+      }
       <h2 style={{ textAlign: 'left', fontSize: '20px' }}>Address</h2>
       <InputGroup>
         <Field
