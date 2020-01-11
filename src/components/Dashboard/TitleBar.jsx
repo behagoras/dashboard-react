@@ -23,7 +23,6 @@ const Button = styled(_Button)`
 `;
 
 const _TitleBar = ({ children, title, name, icon, className, actions, history, handleClick }) => {
-//   alert(JSON.stringify(actions[0]));
   return (
     <Card className={className}>
       <TitleBar>

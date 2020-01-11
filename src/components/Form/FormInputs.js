@@ -86,7 +86,6 @@ export const Input = (props) => {
       <MyTextArea
         id={id}
         name={name}
-        // error={showError}
         inputProps={restInput}
         onChange={onChange}
         value={value}
@@ -100,7 +99,6 @@ export const Input = (props) => {
     <MyInput
       id={id}
       name={name}
-      // error={showError}
       inputProps={restInput}
       onChange={onChange}
       value={value}
@@ -147,7 +145,6 @@ export const Select = (props) => {
     <>
       <MySelect
         name={name}
-        // error={showError}
         inputProps={restInput}
         onChange={onChange}
         value={value}

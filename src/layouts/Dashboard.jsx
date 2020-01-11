@@ -36,7 +36,6 @@ const Dashboard = ({ children }) => {
       <Header />
       <Sidebar />
       <Main>
-        {/* <p>Using Dashboard Template</p> */}
         {children}
       </Main>
       <Footer />

@@ -36,7 +36,6 @@ const Container = styled.div`
     "actions"
     "content"
   }
-  /* max-width:50vw; */
 `;
 
 const DescriptionContainer = styled.div`
@@ -113,13 +112,12 @@ const PropertyDetails = () => {
       console.log(data.data.img.src);
     }
     fetchData();
-  }, []); // Or [] if effect doesn't need props or state
+  }, []);
 
   return (
     <>
 
       <Container>
-        {/* <pre>{JSON.stringify(initialState, 0, 2)}</pre> */}
         <Content>
           <Card>
             <Title>{state.title}</Title>
@@ -175,8 +173,6 @@ const PropertyDetails = () => {
           </Actions>
         </ActionsCard>
       </Container>
-      {/* <Card><pre style={{ textAlign: 'left', background: '#333', color: '#ccc', padding: '30px' }}>{JSON.stringify(state, null, 2)}</pre></Card> */}
-
     </>
   );
 };

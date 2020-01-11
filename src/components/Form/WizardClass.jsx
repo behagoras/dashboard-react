@@ -67,16 +67,12 @@ export default class Wizard extends React.Component {
   }
 
   async componentDidMount() {
-    // const params = useParams();
     const { _id } = this.props;
-    // useEffect(async () => {
     if (_id) {
       const myProperty = await getProperty(_id);
       const { data } = myProperty.data;
       console.log('myProperty', myProperty);
       console.log('data', data);
-      // this.setState({ data });
-      // console.log('state', state);
       this.setState({
         ...this.state,
         values: {
@@ -84,10 +80,8 @@ export default class Wizard extends React.Component {
         },
       });
 
-      // debugger;
     }
 
-  // }, []);
   }
 
   render() {

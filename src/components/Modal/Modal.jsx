@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-// import { Modal } from "antd";
 import Action from '../Atoms/Action';
 import _Card from '../Utils/Card/Card';
 
@@ -38,7 +37,7 @@ const Buttons = styled.div`
 
 const Modal = (props) => {
   const emptyCalback = () => {};
-  const { onOk, onCancel, visible, className, children, text } = props;
+  const { onOk, onCancel, visible, className, text } = props;
   return (
     <ModalWrapper className={className} visible={visible}>
       <Card>

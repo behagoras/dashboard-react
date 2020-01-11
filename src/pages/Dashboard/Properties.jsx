@@ -91,15 +91,6 @@ const DescriptionText = styled.p`
   min-width: 60px;
 `;
 
-const CenterCard = styled.div`
-  display: flex;
-  max-width: 100%;
-  justify-items: center;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-`;
-
 const modalRef = React.createRef();
 
 const Properties = () => {
@@ -192,7 +183,6 @@ const Properties = () => {
                 // eslint-disable-next-line react/jsx-no-bind
                 return (
                   <TableRow
-                    // onClick={handleView.bind(this, property)}
                     key={_id}
                   >
                     <TableCell>

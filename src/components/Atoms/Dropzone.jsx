@@ -3,8 +3,6 @@ import styled from 'styled-components';
 import DropzoneComponent from 'react-dropzone-component';
 import DropzoneStyles from './Dropzone.styles';
 
-// var files = document.querySelector('.filepicker').dropzone.files
-
 const StyledDropzone = styled(DropzoneComponent)`
 & .filepicker {
     font-family: var(--font-family);
@@ -19,7 +17,6 @@ const StyledDropzone = styled(DropzoneComponent)`
     border: 2px dashed #C7C7C7;
 }
 
-/* Icon */
 & .filepicker-file-icon
 {
     position: relative;
@@ -102,7 +99,6 @@ export default class Example extends React.Component {
           iconFiletypes: ['.jpg', '.png'],
           showFiletypeIcon: true,
           postUrl: this.props.apiUrl,
-          // +'&name='+file.name,
         },
       });
       console.log('this.state', this.state);

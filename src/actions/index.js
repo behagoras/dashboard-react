@@ -15,11 +15,9 @@ export const propertyToState = (property) => {
     _id,
     title,
     description,
-    // img,
     address,
     owner,
     prices } = property;
-  // const { src } = img;
   const { street, city, state, zip } = address;
   const {
     fullName,
@@ -27,12 +25,9 @@ export const propertyToState = (property) => {
     email,
     birthplace,
     mobilePhone,
-    // gender,
   } = owner;
   const {
     amount,
-    // formattedAmount,
-    // currencyUid,
     currency,
   } = prices;
 
@@ -68,7 +63,6 @@ export const stateToProperty = (values) => {
     mobilePhone,
     email,
     birthplace,
-    // civilstatus,
     gender,
     price,
     amount,
@@ -81,7 +75,6 @@ export const stateToProperty = (values) => {
 
   const payload = {};
 
-  // debugger;
   title ? payload.title = title : '';
   description ? payload.description = description : '';
   payload.address = {};
@@ -103,10 +96,8 @@ export const stateToProperty = (values) => {
   formattedAmount ? payload.prices.formattedAmount = formattedAmount : '';
   coin ? payload.prices.currency = coin : '';
   currency ? payload.prices.currency = currency : '';
-  // debugger;
   payload.img = {};
   imageSource ? payload.img.src = imageSource : '';
-  // payload.img.src = 'https://img10.naventcdn.com/avisos/18/00/54/81/15/53/360x266/131982081.jpg';
 
   console.log(JSON.stringify(payload, 0, 2));
   return payload;

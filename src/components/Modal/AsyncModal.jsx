@@ -1,7 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
-// import { Modal } from "antd";
-import Button from '../Atoms/Button';
+
 import Modal from './Modal';
 
 export default class PromiseModal extends React.Component {

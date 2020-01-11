@@ -32,7 +32,6 @@ const SidebarContainer = styled.aside`
   top: 0;
   height: 100%;
   bottom: 0;
-  /* width: 260px; */
   left: 0;
   z-index: 4;
   background:var(--brand-color);
@@ -42,7 +41,6 @@ const SidebarContainer = styled.aside`
     box-shadow: 0 2px 22px 0 rgba(0,0,0,.2), 0 2px 30px 0 rgba(0,0,0,.35);
   }
   @media (max-width: 720px) {
-    /* display:none; */
     position:fixed;
     width: 100%;
     height:100%;
@@ -68,7 +66,6 @@ const LogoImg = styled.figure`
     max-height:100%;
     vertical-align: middle;
     border-style: none;
-    /* border-radius: .1875rem; */
   }
 `;
 
@@ -94,7 +91,6 @@ const SidebarContent = styled.nav`
   position: relative;
   height: calc(100vh - 75px);
   overflow: auto;
-  /* width: 260px; */
   z-index: 4;
   padding-bottom: 100px;
   @media (min-width: 991px){
