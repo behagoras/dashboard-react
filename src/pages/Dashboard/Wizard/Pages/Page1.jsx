@@ -28,13 +28,11 @@ const Page1 = (props) => {
               <Dropzone
                 apiUrl={`${config.apiHost}/api/images`}
                 onSuccess={handleImageSuccess}
-              // onDelete={handleImageDelete}
               />
               <Field
                 name="imageSource"
                 component={Input}
                 type="hidden"
-                // validate={required}
                 autoComplete="off"
                 id="imageSource"
                 value="imageSource"

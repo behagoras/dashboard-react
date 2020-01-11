@@ -40,7 +40,6 @@ const Page2 = () => {
       </div>
       <div>
         <h2 style={{ textAlign: 'left', fontSize: '20px' }}>Contact data of the owner</h2>
-        {/* <Container columns="2"> */}
         <InputGroup>
           <Field
             name="residencePhone"
@@ -75,7 +74,6 @@ const Page2 = () => {
           <Error name="CellPhone" />
 
         </InputGroup>
-        {/* </Container> */}
         <Container columns="2">
           <InputGroup>
             <Field
