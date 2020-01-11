@@ -6,7 +6,7 @@ import TitleBar from '../../../components/Dashboard/TitleBar';
 import Page1 from './Pages/Page1';
 import Page2 from './Pages/Page2';
 import Page3 from './Pages/Page3';
-import { createProperty, updateProperty } from '../../../data/crudProperties';
+import { createProperty, updateProperty } from '../../../actions/crudProperties';
 import Card from '../../../components/Utils/Card/Card';
 
 const WizardPage = (props) => {

@@ -1,8 +1,9 @@
 import axios from 'axios';
-import { stateToProperty } from '../actions';
+import { stateToProperty } from '.';
+import config from '../config';
 
 export const getProperties = async () => {
-  const response = await fetch('https://express-api.behagoras.now.sh/api/properties', {
+  const response = await fetch(`${config.apiHost}/api/properties`, {
     mode: 'cors',
   });
   const data = await response.json();
@@ -11,7 +12,7 @@ export const getProperties = async () => {
 
 export const getProperty = async (_uid) => {
   const userData = await axios({
-    url: `https://express-api.behagoras.now.sh/api/properties/${_uid}`,
+    url: `${config.apiHost}/api/properties/${_uid}`,
     method: 'get',
   });
 
@@ -23,7 +24,7 @@ export const createProperty = async (values) => {
   const payload = stateToProperty(values);
 
   const userData = await axios({
-    url: 'https://express-api.behagoras.now.sh/api/properties',
+    url: `${config.apiHost}/api/properties`,
     method: 'post',
     data: payload,
   });
@@ -33,7 +34,7 @@ export const createProperty = async (values) => {
 };
 
 export const updateProperty = async (_id, values) => {
-  const url = `https://express-api.behagoras.now.sh/api/properties/${_id}`;
+  const url = `${config.apiHost}/api/properties/${_id}`;
   const payload = stateToProperty(values);
   const userData = await axios({
     url,
@@ -44,7 +45,7 @@ export const updateProperty = async (_id, values) => {
 };
 
 export const deleteProperty = async (_id) => {
-  const url = `https://express-api.behagoras.now.sh/api/properties/${_id}`;
+  const url = `${config.apiHost}/api/properties/${_id}`;
   const response = await fetch(url, {
     method: 'delete',
   });

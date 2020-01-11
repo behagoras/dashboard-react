@@ -6,7 +6,7 @@ import { Form } from 'react-final-form';
 import styled from 'styled-components';
 import Button from '../Atoms/Button';
 import { propertyToState } from '../../actions';
-import { getProperty } from '../../data/crudProperties';
+import { getProperty } from '../../actions/crudProperties';
 
 const Buttons = styled.div`
   display:grid;

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 import ReactHtmlParser from 'react-html-parser';
 
-import { getProperty } from '../../data/crudProperties';
+import { getProperty } from '../../actions/crudProperties';
 
 import Card from '../../components/Utils/Card/Card';
 import Action from '../../components/Atoms/Action';

@@ -4,6 +4,7 @@ import Wizard from '../../../../components/Form/Wizard';
 import { Input, Label, InputGroup } from '../../../../components/Form/FormInputs';
 import Container from '../../../../components/Atoms/Container';
 import Dropzone from '../../../../components/Atoms/Dropzone';
+import config from '../../../../config';
 
 const Error = ({ name }) => (
   <Field
@@ -25,7 +26,7 @@ const Page1 = (props) => {
             <h2 style={{ textAlign: 'left', fontSize: '20px' }}>Property Image</h2>
             <InputGroup>
               <Dropzone
-                apiUrl="https://express-api.behagoras.now.sh/api/images"
+                apiUrl={`${config.apiHost}/api/images`}
                 onSuccess={handleImageSuccess}
               // onDelete={handleImageDelete}
               />

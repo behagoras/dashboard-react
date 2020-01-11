@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 import Card from '../../components/Utils/Card';
 import propertiesMock from '../../mock/properties1.json';
-import { getProperties, deleteProperty } from '../../data/crudProperties';
+import { getProperties, deleteProperty } from '../../actions/crudProperties';
 import TitleBar from '../../components/Dashboard/TitleBar';
 import IconAction from '../../components/Atoms/IconAction';
 import Modal from '../../components/Modal/AsyncModal';

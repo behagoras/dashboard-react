@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import PropertyList, { Item } from '../../../components/PropertyList';
 import propertiesMock from '../../../mock/properties1.json';
-import { getProperties } from '../../../data/crudProperties';
+import { getProperties } from '../../../actions/crudProperties';
 import placeholder from '../../../assets/img/placeholder.png';
 
 const Properties = () => {
