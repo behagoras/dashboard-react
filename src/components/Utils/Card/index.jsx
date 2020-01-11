@@ -7,6 +7,9 @@ import _CardFooter from './CardFooter';
 
 export const CardTitle = styled.h2`
     font-size:${(props) => props.theme.fontSize};
+    & a:link{
+        text-decoration:none;
+    }
 `;
 export const CardDescription = styled.p`
     font-size:${(props) => props.theme.fontSize * 0.75};

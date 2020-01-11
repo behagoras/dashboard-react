@@ -26,7 +26,9 @@ const Page1 = (props) => {
             <h2 style={{ textAlign: 'left', fontSize: '20px' }}>Property Image</h2>
             <InputGroup>
               <Dropzone
-                apiUrl={`${config.apiHost}/api/images`}
+                // apiUrl={`${config.apiHost}/api/images`}
+                // It stop working when getting from config file
+                apiUrl="https://express-api.behagoras.now.sh/api/images"
                 onSuccess={handleImageSuccess}
               />
               <Field

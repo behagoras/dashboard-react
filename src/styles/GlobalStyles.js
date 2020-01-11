@@ -58,6 +58,11 @@ const GlobalStyle = createGlobalStyle`
   a,body,div,html {
     font-size: ${(props) => props.theme.fontSize};
   }
+
+  a:link {
+    color: var(--brand-color-text);
+    text-decoration:none;
+  }
   *{
     margin:0;
     padding:0;

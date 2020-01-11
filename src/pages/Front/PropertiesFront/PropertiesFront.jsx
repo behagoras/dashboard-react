@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import PropertyList, { Item } from '../../../components/PropertyList';
 import propertiesMock from '../../../mock/properties1.json';
@@ -19,20 +20,7 @@ const Properties = () => {
 
   return (
     <PropertyList>
-      <Item
-        cover="https://media.truehome.com.mx/media/original_images/663_HCPortada.jpg"
-        type="apartment"
-        price={['5300000', 'MXN']}
-        title="Hacienda del Ciervo, Hacienda de las Palmas"
-        description="Hacienda de las Palmas, Huixquilucan, Estado de México"
-        characteristics={{
-          bedrooms: 2,
-          bathrooms: 2,
-          parkingLots: 2,
-          surface: [155, 'm2'],
-          age: [16, 'y'],
-        }}
-      />
+
       {
         properties.map((property) => {
           const {
@@ -46,21 +34,23 @@ const Properties = () => {
           const placeholder2 = `/${placeholder}`;
           const to = `/admin/property/${_id}`;
           return (
-            <Item
-              to={to}
-              cover={img.src || placeholder2}
-              type="apartment"
-              price={[prices.amount, 'MXN']}
-              title={title}
-              description={description}
-              characteristics={{
-                bedrooms: 2,
-                bathrooms: 2,
-                parkingLots: 2,
-                surface: [155, 'm2'],
-                age: [16, 'y'],
-              }}
-            />
+            <Link to={to}>
+              <Item
+                to={to}
+                cover={img.src || placeholder2}
+                type="apartment"
+                price={[prices.amount, 'MXN']}
+                title={title}
+                description={description}
+                characteristics={{
+                  bedrooms: 2,
+                  bathrooms: 2,
+                  parkingLots: 2,
+                  surface: [155, 'm2'],
+                  age: [16, 'y'],
+                }}
+              />
+            </Link>
 
           );
         })
