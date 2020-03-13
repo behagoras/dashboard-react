@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link as _Link } from 'react-router-dom';
 import _Button from '../../Atoms/Button';
 import Card from './Card';
 
@@ -21,20 +22,21 @@ const Title = styled.h2`
   padding:16px;
 `;
 
-const Container = styled.div`
+const Container = styled.article`
   max-width:200px;
 `;
 
-const Button = styled(_Button)`
-`;
+const Link = styled(_Link)``;
 
-const Card2 = ({ children, title, className, onClick }) => {
+const Button = styled(_Button)``;
+
+const CardLuis = ({ children, title, className, onClick }) => {
   return (
     <Card>
       <Wrapper className={className}>
         <Title background="blue">Título</Title>
         <Container>
-          Hola Card
+          <Link to="/">Hola Card</Link>
           <Button>Hello</Button>
         </Container>
       </Wrapper>
@@ -42,4 +44,4 @@ const Card2 = ({ children, title, className, onClick }) => {
   );
 };
 
-export default Card2;
+export default CardLuis;
