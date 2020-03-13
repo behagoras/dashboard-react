@@ -15,7 +15,7 @@ const HamburgerButtonWrapper = styled.div`
         margin: 5px auto;
         transition: all 0.3s ease-in-out;
     }
-    & span{        
+    & span{
         display: block;
         cursor: pointer;
     }
@@ -28,8 +28,6 @@ const HamburgerButtonWrapper = styled.div`
     & span:nth-child(3){
         transform:${(props) => (props.isActive ? 'translateY(-8px) rotate(-45deg)' : '')};
     }
-
-
 `;
 
 const HamburgerButton = (props) => {

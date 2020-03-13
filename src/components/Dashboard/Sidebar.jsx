@@ -7,7 +7,7 @@ import HamburgerButton from '../Atoms/HamburgerButton';
 
 const MobileMenu = styled.div`
   display:none;
-  @media  screen and (max-width: 720px) { 
+  @media  screen and (max-width: 720px) {
     position: absolute;
     z-index:12;
     top: 0;
@@ -114,7 +114,6 @@ const Navigation = styled.ul`
   display: flex;
   flex-wrap: wrap;
   list-style: none;
- 
 `;
 
 const NavElement = styled.li`
@@ -124,7 +123,6 @@ const NavElement = styled.li`
   & :hover{
     background-color: hsla(0,0%,100%,.1);
   }
- 
 `;
 
 const CustomLink = styled(Link)`
@@ -136,31 +134,33 @@ const CustomLink = styled(Link)`
     cursor: pointer;
     font-size: .7142em;
     padding: 10px 8px;
-    line-height: 1.625rem; 
+    line-height: 1.625rem;
     display:grid;
     grid-template-columns:50px 1fr;
-    align-items:center;  
+    align-items:center;
     & p {
       text-align:left;
-    } 
+    }
     & i {
       color: var(--brand-color-text);
       opacity:.3;
       font-size:16px;
     }
-  
+
 `;
 
 const Sidebar = () => {
+
   const [isActive, setIsActive] = useState(false);
   const handleHamburgerClick = (event) => {
     event.preventDefault();
     setIsActive(!isActive);
   };
+
   const handleLinkClick = () => {
     setIsActive(false);
-
   };
+
   return (
     <>
       <MobileMenu>

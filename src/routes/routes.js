@@ -4,9 +4,9 @@ import Properties from '../pages/Dashboard/Properties';
 import AddProperty from '../pages/Dashboard/Wizard/AddProperty';
 import UpdateProperty from '../pages/Dashboard/Wizard/UpdateProperty';
 import PropertyDetails from '../pages/Dashboard/PropertyDetails';
+import Card from '../components/Utils/Card/CardLuis';
 
 const dashboardRoutes = [
-
   {
     path: '/add-property',
     name: 'Wizard',
@@ -19,6 +19,20 @@ const dashboardRoutes = [
     },
     exact: true,
     menu: false,
+    sidebar: false,
+  },
+  {
+    path: '/card',
+    name: 'Card',
+    rtlName: 'Card',
+    icon: 'fas fa-home',
+    component: Card,
+    layout: '/admin',
+    props: {
+      type: 'create',
+    },
+    exact: true,
+    menu: true,
     sidebar: false,
   },
   {
